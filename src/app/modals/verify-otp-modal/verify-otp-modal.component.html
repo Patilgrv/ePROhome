@@ -1,0 +1,67 @@
+<p>verify-otp-modal works!</p>
+
+
+<!-- #region screen5 VerifyOtp -->
+<!-- <div id="VerifyOtp" style="display:none" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal">
+        <div class="modal-content ffily">
+            <div class="modal-header">
+                
+            </div>
+            <div class="modal-body epro-otp-modal-body">
+               
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- #endregion screen5 VerifyOtp -->
+<div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div class="col-xl-4 text-right pr-0 epro-logo-section">
+            <img src="assets/images/ePro_Connect_logo_image.png"
+                 class="epro-logo-dark" />
+        </div>
+        <div class="col-xl-8 text-center mt-3 pl-0">
+            <h5 class="modal-title text-lg-left">Verify Mobile Number</h5>
+        </div>
+    </div>
+  
+  
+  
+</div>
+<div class="modal-body scrollable-modal-body">
+    <img src="assets/images/Group 35555.svg" class="epro-otp-image mb-3" />
+    <h2 class="epro-otp-heading">
+        Please enter the One-Time-Password (OTP) sent to your mobile
+        number<br /> {{patientPhone}}
+    </h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-7 mx-auto">
+            <form method="get" id="digit-group" class="digit-group mb-5" data-group-name="digits"
+                  data-autosubmit="false" autocomplete="off">
+                <div class="d-flex flex-row mt-5">
+                    <input type="text"
+                           ng-keydown="!(this.value.length===4 && event.keyCode!= 8)"
+                           class="form-control masked epro-otp-box"
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, '');" id="digit-1"
+                           name="digit-1" maxlength="4" min="0" max="9999" required />
+                </div>
+            </form>
+
+            <button type="button" class="butNext screen-fifth btn btn-orange btn-theme mb-3"
+                    ng-click="VerifyOtp()" (click) = 'nextScreen()'>
+                VERIFY
+            </button>
+        </div>
+    </div>
+    <h4 id="patDe1316" class="epro-location-name mb-5">
+        Didn't receive an OTP? <span class="epro-highlight-text-orange resendOtp font-theme" ng-click="ResendOtp()">
+            Resend
+            OTP
+        </span>
+    </h4>
+  
+  
+  
+</div>

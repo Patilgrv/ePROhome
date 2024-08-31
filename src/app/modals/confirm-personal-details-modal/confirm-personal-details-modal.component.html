@@ -1,0 +1,153 @@
+
+<div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div class="col-xl-4 text-right pr-0 epro-logo-section">
+            <img src="assets/images/ePro_Connect_logo_image.png"        
+                 class="epro-logo-dark" />
+        </div>
+        <div class="col-xl-8 text-center mt-3 pl-0">
+            <h5 class="modal-title text-lg-left">Enter Patient Details</h5>
+        </div>
+    </div>  
+</div>
+<div class="modal-body scrollable-modal-body">
+  
+    <div class="row">
+        <div class="col-xl-11 mx-auto">
+            <div class="epro-image-center">
+                <img src="assets/images/Group 35726.svg" class="epro-otp-image mb-2" />
+            </div>
+            <form class="appointmentForm" id="appointmentForm" name="demographicForm">
+                <div class="row epro-personal-details">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputFirstName">
+                            First Name<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class='form-control alpha-withspace-only font-theme' id="first-name"
+                               ng-model="Patient.firstName" placeholder="Enter first name" maxlength="30" required>
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputLastName">
+                            Last Name<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class='form-control alpha-only font-theme' id="last-name"
+                               ng-model="Patient.familyName" placeholder="Enter last name" maxlength="30" required>
+                    </div>
+                    <div class="form-group col-xl-4 mobile-input">
+                        <label class="form-label" for="inputMobileNumber">
+                            Mobile Number<span class="epro-required">*</span>
+                        </label>
+                        <input type="tel" class="form-control intlTelInput1 font-theme"
+                               name="intlTelInput1" ng-model="Patient.mobileNumber" id="intlTelInput1"
+                               min="8" ng-model="Patient.number" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row epro-personal-details epro-dob-details">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputCity">
+                            Date of Birth<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" id="dobInput" class="form-control  font-theme"
+                               ng-model="Patient.dateOfBirth" placeholder="Recipient's username"
+                               aria-label="Recipient's username" aria-describedby="basic-addon2" hidden>
+                    </div>
+
+                    <div class="form-group col-xl-8" id="shrinkEmail">
+                        <label class="form-label" for="inputEmailAddress">
+                            Email Address<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class="form-control font-theme" id="input-email"
+                               ng-model="Patient.email" placeholder="Enter email address"
+                               autocomplete="off" maxlength="100" required>
+                    </div>
+                    <div class="form-group col-xl-4" id="showZipCode">
+                        <label class="form-label" for="inputZipCode">
+                            Zip Code<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class="form-control alpha-zip-code-only font-theme" id="input-zip-code"
+                               ng-model="Patient.zipCode" placeholder="Enter zip code"
+                               autocomplete="off" maxlength="9">
+                    </div>
+                </div>
+                <div class=" row epro-personal-details epro-details-checkbox-div">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputGender">
+                            Gender<span class="epro-required">*</span>
+                        </label>
+                        <select class="form-select col-xl-12 font-theme" name="Gender" ng-model="Patient.gender"
+                                aria-label="Default select example" id="gender-input" required>
+                            <option class="font-theme" selected style="font-family:DunbarTall" value="">
+                                Select
+                            </option>
+                            <option class="font-theme " style="font-family:DunbarTall" value="male">
+                                Male
+                            </option>
+                            <option class="font-theme " style="font-family:DunbarTall" value="female">
+                                Female
+                            </option>
+                        </select>
+                    </div>
+
+                    commentStart
+
+
+                    <!-- <div class="form-group col-xl-4" id="showHau">
+                        <label class="form-label">
+                            How did you hear about us?<span class="epro-required" id="showHauRequired">*</span>
+                        </label>
+                        <select class="form-select col-xl-6 font-theme" name="SelectHearAboutUs" ng-model="Patient.hearAboutUs"
+                                aria-label="Default select example" id="form-select-hearaboutus">
+                            <option class="font-theme" selected style="font-family:DunbarTall" value="">Select</option>
+                            <option class="font-theme " style="font-family:DunbarTall"
+                                    *ngFor="let hearAboutUsData of hearAboutUsList" id={{hearAboutUsData.id}}
+                                    value={{hearAboutUsData.id}}>
+                                {{hearAboutUsData.display}}
+                            </option>
+                        </select>
+                    </div>  -->
+
+                    commentEnd
+
+
+                    <div class="form-group col-xl-4 adj-hduhau-box" id="showHDUHAUDescription" style="display:none;">
+                        <input type="text" id="HDUHAUDescription" class='form-control hduhau-Desc font-theme' ng-model="Patient.HDUHAUDescription" />
+                    </div>
+                </div>
+                <div class="form-group col-xl-4 mx-auto mt-3" id="CheckforWaitlist">
+                    <input class="form-check-input showDateField font-theme ng-valid ng-dirty" type="checkbox" id="textForEarlierAppointment" ng-model="Patient.isRequestedForEarlierAppointment">
+                    <label class="form-check-label" for="textForEarlierAppointment">
+                        Text me about earlier availability
+                    </label>
+                    <input class="epr-patient-waitDate form-control font-theme ng-pristine ng-valid mb-2" type="date" id="epr-patient-waitDate" ng-model="Patient.waitDate" placeholder="Select Date" min="2024-01-15" max="2024-01-15">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 form-group text-center inputbox-field">
+                        <label class="form-check-label" for="SmsOptInOut" style="text-align: center;">
+                            <input class="form-check-input font-theme ng-valid ng-dirty" ng-model="Patient.smsOptIn" type="checkbox" id="SmsOptInOut" checked><span>Ok to text me about my appointments and care-related messages. <br /><span style="font-weight: normal;">By continuing, you are agreeing to our <u style="color:#0a58ca;font-weight: bold;">
+                           commentStart
+                                <!-- <a href="{{TermsAndService}}" 
+                               target="_blank">Terms of Service.</a> -->
+                               commentEnd
+                           </u></span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="butNext screen-third btn btn-orange btn-theme" id="BackButton" (click)="BackConfirmAppointment()">
+                            Back
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- <button type="submit" class="butNext screen-third btn btn-orange btn-theme" id="NextButton" (click)="ConfirmPersonalDetails3()" ng-click="demographicForm.$valid && ConfirmPersonalDetails(Patient,'intlTelInput1');"> -->
+                        <button type="submit" class="butNext screen-third btn btn-orange btn-theme" id="NextButton" (click)="ConfirmPersonalDetails($event)" >
+                            NEXT
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div> 
+

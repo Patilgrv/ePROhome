@@ -1,0 +1,113 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+      <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div class="col-xl-4 pr-0 text-right epro-logo-section">
+          <img class="epro-logo-dark" src="assets/images/ePro_Connect_logo_image.png" />
+        </div>
+        <div class="col-xl-8 text-center mt-3 pl-0">
+          <h5 class="modal-title text-lg-left">Select Date & Time</h5>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-body scrollable-modal-body">
+      <div class="row">
+        <div class="col-md-4" id="LocationField">
+          <div class="form-select-field">
+            <label class="ffily form-label" id="appot-v4262">Location</label>
+            <select formControlName="location" class="form-select font-theme" id="locationOptions" (change)="getAllLocations()" required>
+              <option *ngFor="let locationData of locations" [value]="locationData.rsaC_LOCATION_SRC_ID">
+                {{ locationData.rsaC_LOCATION_NME }}
+              </option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="col-md-4" id="AppointmentTypesField">
+          <div class="form-select-field">
+            <label class="form-label" id="appot-v4262">Appointments</label>
+            <select formControlName="appointmentType" class="form-select font-theme" id="appointmentTypesOptions" (change)="getAllLocations()" required>
+              <option *ngFor="let appointmenttype of appointmentTypes" [value]="appointmenttype.appointmentTypeSrcID">
+                {{ appointmenttype.appointmentTypeDesc }}
+              </option>
+            </select>
+          </div>
+        </div>
+  
+        <ng-container>
+          <div class="col-md-4" id="UpdateProviderField">
+            <div class="form-select-field">
+              <label class="form-label">Provider</label>
+              <select formControlName="provider" class="form-select font-theme" id="providersOptions" required>
+                <option value="0" selected>All</option>
+
+                <option *ngFor="let provider of providers" [value]="provider.rsaC_PERSON_SRC_ID" >
+                  {{ provider.personName }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+  
+      <br />
+  
+      <div class="d-flex justify-content-between ep-head-datepicker">
+        <div class="ep-left-btn ep-cl-btns">
+          <button class="butNext screen-third btn btn-orange btn-theme-light" id="left_Calendar_button">
+            <i class="fas fa-arrow-left" style="color:black;"></i>
+          </button>
+        </div>
+        <div class="ep-center-btn">
+          <button type="button" class="butNext calendar-button screen-third btn btn-orange btn-theme"
+            (click)="calendarPopup()">
+            View Monthly Calendar &nbsp;&nbsp;<i class="fa fa-calendar"></i>
+          </button>
+        </div>
+        <div class="ep-right-btn ep-cl-btns">
+          <button class="butNext screen-third btn btn-orange btn-theme-light" id="right_Calendar_button"
+            style="float:right">
+            <i class="fas fa-arrow-right" style="color:black;"></i>
+          </button>
+        </div>
+      </div>
+  
+      <br />
+  
+      <div class="ep-datepicker-box" id="slotsId" style="display:block">
+        <div class="ep-slot-header">
+          <div class="ep-custom-card" *ngFor="let slots of appointmentSlotsList">
+            <div class="card-header  calendar-button btn-theme-light">
+              {{ slots.dateDisplay }}
+            </div>
+          </div>
+        </div>
+        <div class="ep-slot-body">
+          <div class="ep-custom-card" *ngFor="let slots of appointmentSlotsList">
+            <div class="card">
+              <div class="card-header calendar-button btn-theme-light" style="display:none">
+                {{ slots.dateDisplay }}
+              </div>
+              <div class="card-body text-center" id="ToolTipOnSlot">
+                <span *ngIf="slots.count === 0" class="noSlots">No Available Appointments</span>
+            <button class="slots" *ngFor="let intraday of slots.intraday" href="" (click)="selectSlot($event,intraday.rsaC_APPT_SLOT_SRC_ID)">
+                  {{ intraday.rsaC_APPT_SLOT_START_TIME }}
+            </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <br />
+  
+      <div class="epro-required-feedback" id="form-select-slots-new" style="display:none">
+        Please select a valid slot.
+      </div>
+  
+      <button type="submit" (click) = ConfirmAppointment2() class="butNext screen-second btn-orange btn-theme">
+        NEXT
+      </button>
+    </div>
+  </form>
+  

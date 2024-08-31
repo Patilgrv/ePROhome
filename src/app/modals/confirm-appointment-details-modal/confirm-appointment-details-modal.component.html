@@ -1,0 +1,113 @@
+
+<div class="modal-header">
+  <div class="row w-100 flex-row-reverse align-items-center mx-0">
+    <div class="col-xl-4 text-right pr-0 epro-logo-section">
+        <img src="assets/images/ePro_Connect_logo_image.png"
+             class="epro-logo-dark" />
+    </div>
+    <div class="col-xl-8 text-center mt-3 pl-0">
+        <h5 class="modal-title text-lg-left">Verify Details Before Booking</h5>
+    </div>
+</div>
+</div>
+<div class="modal-body scrollable-modal-body">
+    <div class="sv-booking-details">
+      <div class="row">
+          <div class="col-md-12">
+              <h2 class="epro-appoint-details text-right">
+                  <button class="badge badge-pill badge-danger epro-edit-btn btn-theme"
+                          ng-click="EditAppointment()">
+                      <i class="fa fa-pencil"
+                         aria-hidden="true"></i> Edit
+                  </button>
+              </h2>
+          </div>
+      </div>
+      <div class="sv-booking-scroll">
+          <div class="row">
+              <div class="col-lg-7">
+                  <div class="sv-patient-box h-100">
+                      <h2 class="epro-appoint-details">Patient Details</h2>
+                      <div class="sv-patient-details">
+                          <div class="row" id="PatientConfirmDemographicDetails">
+                              <div class="col-md-4 mb-2"><strong>First Name:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1">{{Patient.firstName}}</div> 
+
+                              <div class="col-md-4 mb-2"><strong>Last Name:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1">{{Patient.familyName}}</div>
+
+                              <div class="col-md-4 mb-2"><strong>Mobile Number:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1">{{mobilePhone}}</div>
+
+                              <div class="col-md-4 mb-2"><strong>Date of Birth:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1">{{Patient.dateOfBirth}}</div>
+
+                              <div class="col-md-4 mb-2"><strong>Email:</strong></div>
+                              <div class="col-md-8 mb-2 sv-email-wrap">{{Patient.email}}</div>
+
+                              <div class="col-md-4 mb-2"><strong>Gender:</strong></div>
+                              <div class="col-md-8 mb-2  mb-xs-1">{{patientGender}}</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-5 sv-mtmb-15">
+                  <div class="sv-patient-box h-100">
+                      <h2 class="epro-appoint-details">Appointment Details</h2>
+                      <div class="sv-patient-details">
+                          <div class="row">
+                              <div class="col-md-4 mb-2"><strong>Type:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1">{{selectedAppTypeName}}</div>
+                              <div class="col-md-4 mb-2" id="practitionerlabel"><strong>Provider:</strong></div>
+                              <div class="col-md-8 mb-2 mb-xs-1" id="practitionerDisplay">{{practitioner}}</div>
+                              <div class="col-md-4 mb-2"><strong>Date &amp; Time:</strong></div>
+                              <!-- <div class="col-md-8 mb-2 mb-xs-1">{{appointmentDetails.appointmentStartLocal}} @*at {{selectedTime}}*@</div> -->
+
+                              <div class="col-md-4 mb-2"><strong>Location:</strong></div>
+                              <div class="col-md-8 mb-2">
+                                  {{selectedlocationName}} {{location.locationAddress}}<br />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <!-- /.sv-booking-details -->
+   <div class="card-footer sv-booking-footer">
+          <form>
+          <div class="form-group my-12">
+              <div class="form-check " id="HearAboutUs2">
+                  <input class="form-check-input" type="checkbox"
+                         id="CheckForHearAboutUs2"
+                         disabled>
+                  <label class="form-check-label" for="gridCheck">
+                      How did you hear about us? | <span class="font-theme HearAboutUsSpan">{{hearAboutUsText}}</span>
+                  </label>
+
+              </div>
+          </div>
+          <div class="form-group my-12">
+              <div class="form-check " id="CheckforWaitlist2">
+                  <input class="form-check-input" type="checkbox"
+                         id="textForEarlierAppointment"
+                         ng-model="Patient.isRequestedForEarlierAppointment" disabled>
+                  <label class="form-check-label" for="gridCheck">
+                      Text me about earlier availability
+                  </label>
+
+              </div>
+          </div>
+
+      </form>
+      <button type="button" class="butNext screen-fourth btn btn-orange btn-theme"
+              ng-click="ConfirmAppointmentDetails(Patient,'intlTelInput2')"
+              (click)="ConfirmAppointmentDetail4()">
+          Verify
+      </button>
+  </div> 
+  <!-- /.sv-booking-footer -->
+ </div>
+

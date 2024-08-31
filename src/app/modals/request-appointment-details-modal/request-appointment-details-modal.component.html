@@ -1,0 +1,150 @@
+<div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div class="col-xl-4 text-right pr-0 epro-logo-section">
+            <img src="assets/images/ePro_Connect_logo_image.png"
+                 class="epro-logo-dark" />
+        </div>
+        <div class="col-xl-8 text-center mt-3 pl-0">
+            <h5 class="modal-title text-lg-left">Request an Appointment</h5>
+        </div>
+    </div>
+</div>
+<div class="modal-body scrollable-modal-body">
+  
+    <div class="row">
+        <div class="col-xl-11 mx-auto">
+            <div class="epro-image-center">
+            <img src="assets/images/Group 35726.svg" class="epro-otp-image mb-2" />
+            </div>
+            <form class="appointmentForm" id="ChangeappointmentForm" name="ChangedemographicForm">
+                <div class="row epro-personal-details">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputFirstName">
+                            First Name<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class='form-control alpha-withspace-only font-theme' id="first-name-changerequest"
+                               ng-model="Request.firstName" placeholder="Enter first name" maxlength="30" required>
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputLastName">
+                            Last Name<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class='form-control alpha-only font-theme' id="last-name-changerequest"
+                               ng-model="Request.familyName" placeholder="Enter last name" maxlength="30" required>
+                    </div>
+                    <div class="form-group col-xl-4 mobile-input">
+                        <label class="form-label" for="inputMobileNumber">
+                            Mobile Number<span class="epro-required">*</span>
+                        </label>
+                        <input type="tel" class="form-control intlTelInputReq font-theme"
+                               name="intlTelInput1" ng-model="Request.mobileNumber" id="intlTelInputReq"
+                               min="8" ng-model="Request.number" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row epro-personal-details epro-dob-details">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputCity">
+                            Date of Birth<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" id="dobRequestInput" class="form-control  font-theme"
+                               ng-model="Request.dateOfBirth" placeholder="Recipient's username"
+                               aria-label="Recipient's username" aria-describedby="basic-addon2" hidden>
+                    </div>
+
+                    <div class="form-group col-xl-8">
+                        <label class="form-label" for="inputEmailAddress">
+                            Email Address<span class="epro-required">*</span>
+                        </label>
+                        <input type="text" class="form-control font-theme" id="input-email-changerequest"
+                               ng-model="Request.email" placeholder="Enter email address" maxlength="100"
+                               autocomplete="off" required>
+                    </div>
+                </div>
+
+                <div class="row  epro-personal-details">
+                    <div class="form-group col-xl-4">
+                        <label class="form-label" for="inputGender">
+                            Gender<span class="epro-required">*</span>
+                        </label>
+                        <select class="form-select font-theme" name="Gender" ng-model="Request.gender"
+                                aria-label="Default select example" id="gender-input-changerequest" required>
+                            <option class="font-theme" selected style="font-family:DunbarTall" value="">
+                                Select
+                            </option>
+                            <option class="font-theme " style="font-family:DunbarTall" value="male">
+                                Male
+                            </option>
+                            <option class="font-theme " style="font-family:DunbarTall" value="female">
+                                Female
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <div id="showHau-changerequest">
+                            <label class="form-label">
+                                How did you hear about us?<span class="epro-required" id="showHauRequired-changerequest">*</span>
+                            </label>
+                            <select class="form-select font-theme" name="SelectHearAboutUs" ng-model="Request.hearAboutUs"
+                                    aria-label="Default select example" id="form-select-hearaboutus-changerequest">
+                                <option class="font-theme" selected style="font-family:DunbarTall" value="">Select</option>
+                                <option class="font-theme " style="font-family:DunbarTall"
+                                        *ngFor="let hearAboutUsData of hearAboutUsList" id={{hearAboutUsData.id}}
+                                        value={{hearAboutUsData.id}}>
+                                    {{hearAboutUsData.display}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-xl-4 adj-hduhau-box" id="showHDUHAUDescription-changerequest" style="display:none">
+                        <input type="text" id="HDUHAUDescription-changerequest" class='form-control hduhau-Desc font-theme' ng-model="Request.HDUHAUDescription" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-xl-12">
+                        <label class="form-label" for="inputMessage">
+                            Message
+                        </label>
+                        <textarea rows="3" class="font-theme col-xl-12 message-control" id="message" maxlength="1200"
+                                  ng-model="Request.message" placeholder="Please feel free to share any relevant details, including the reason for your visit, preferred date and time, and/or insurance information."
+                                  autocomplete="off"></textarea>
+                        <span id="MessageValidation" class="epro-required" style="display:none">Maximum 1200 characters allowed.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 mx-auto">
+                        <div class="mt-message-para">
+                            <p>These messages are monitored during our regular business hours. Any request outside of these hours will be processed the following business day.</p>
+                            <p>If this is an emergency please seek medical attention  at an urgent care facility of the nearest emergency room.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 form-group text-center inputbox-field">
+                        <label class="form-check-label" for="SmsOptInOut2" style="text-align: center;">
+                            <input class="form-check-input font-theme ng-valid ng-dirty" ng-model="Request.smsOptIn" type="checkbox" id="SmsOptInOut2" checked><span>Ok to text me about my appointments and care-related messages. <br /><span style="font-weight: normal;">By continuing, you are agreeing to our <u style="color:#0a58ca;font-weight: bold;">
+                               commentStart
+                               <!-- <a href="{{TermsAndService}}" target="_blank">Terms of Service.</a> -->
+                               commentEnd
+                           </u></span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="butNext screen-third btn btn-orange btn-theme" id="BackChangeRequestButton" ng-click="BackChangeRequest();">
+                            Back
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="butNext screen-third btn btn-orange btn-theme" id="NextChangeRequestButton" (click)="RequestPersonalDetails($event)" ng-click="ChangedemographicForm.$valid && RequestPersonalDetails(Request,'intlTelInputReq');">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

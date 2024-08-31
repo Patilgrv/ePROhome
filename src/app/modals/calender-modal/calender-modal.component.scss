@@ -1,0 +1,11 @@
+.datepicker table tr td.active.day {
+    background-color: #2E4D6C;
+}
+
+.datepicker table tr td.today.day {
+    background-color: #bad9f8;
+}
+
+
+.datepicker.today { background-color: #f70843; }
+.datepicker.selected { background-color: #300fe9; }

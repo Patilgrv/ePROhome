@@ -1,0 +1,90 @@
+<p>request-summary-error-modal works!</p>
+<!-- @*********************************************************************************************************@ -->
+<!-- #region SummaryRequestErrorScreen for Request an appointment screen -->
+<!-- <div id="RequestSummaryError" style="display:none" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal">
+        <div class="modal-content ffily">
+            <div class="modal-header">
+                <div class="row w-100 flex-row-reverse align-items-center mx-0">
+                    <div id="ErrorImage" class="col-xl-4 text-right pr-0 ReqDenied"><img src="~/data/ePro_Connect_logo_image.png" class="epro-logo-dark" /></div>
+                    <div class="col-xl-8 text-center mt-3 pl-0"><h5 class="modal-title text-lg-left">Appointment Summary</h5></div>
+                </div>
+            </div>
+            <div class="modal-body epro-otp-modal-body">
+                <img src="https://cdn.dribbble.com/users/1150186/screenshots/6290394/session_timeout_warning.jpg?compress=1&resize=400x300" class="epro-error-image" />
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h2 class="epro-appoint-details epro-error-text">
+                            Please Call our office! <br /> <br />We are having a problem scheduling your appointment right now. Please call our office so that we may better assist you!
+
+                        </h2>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <h1 class="epro-practice-name font-theme">{{TimeSlotResults.inquiryDetail.client.clientName}}</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <p class="epro-footer-text text-center epro-mb-2"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;<a href="https://maps.google.com/?q={{SummaryData.inquiryDetail.location.locationAddress}}" target="_blank">{{TimeSlotResults.inquiryDetail.location.locationAddress}}</a></p>
+                                <p class="epro-footer-text text-center epro-mb-2"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;<a href="tel:{{TimeSlotResults.inquiryDetail.client.clientPhone}}">{{TimeSlotResults.inquiryDetail.client.clientPhone}}</a></p>
+                                <p class="epro-footer-address text-center"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;<a href="mailto:{{TimeSlotResults.inquiryDetail.client.clientEmail}}">{{TimeSlotResults.inquiryDetail.client.clientEmail}}</a></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- #endregion SummaryRequestErrorScreen for Request an appointment screen -->
+
+
+<div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div id="ErrorImage" class="col-xl-4 text-right pr-0 ReqDenied"><img src="~/data/ePro_Connect_logo_image.png" class="epro-logo-dark" /></div>
+        <div class="col-xl-8 text-center mt-3 pl-0"><h5 class="modal-title text-lg-left">Appointment Summary</h5></div>
+    </div>
+  
+  
+  
+</div>
+<div class="modal-body scrollable-modal-body">
+    <img src="https://cdn.dribbble.com/users/1150186/screenshots/6290394/session_timeout_warning.jpg?compress=1&resize=400x300" class="epro-error-image" />
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2 class="epro-appoint-details epro-error-text">
+                Please Call our office! <br /> <br />We are having a problem scheduling your appointment right now. Please call our office so that we may better assist you!
+
+            </h2>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!-- <h1 class="epro-practice-name font-theme">{{TimeSlotResults.inquiryDetail.client.clientName}}</h1> -->
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+<!-- 
+                    <p class="epro-footer-text text-center epro-mb-2"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;<a href="https://maps.google.com/?q={{SummaryData.inquiryDetail.location.locationAddress}}" target="_blank">{{TimeSlotResults.inquiryDetail.location.locationAddress}}</a></p>
+                    <p class="epro-footer-text text-center epro-mb-2"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;<a href="tel:{{TimeSlotResults.inquiryDetail.client.clientPhone}}">{{TimeSlotResults.inquiryDetail.client.clientPhone}}</a></p>
+                    <p class="epro-footer-address text-center"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;<a href="mailto:{{TimeSlotResults.inquiryDetail.client.clientEmail}}">{{TimeSlotResults.inquiryDetail.client.clientEmail}}</a></p> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click) = 'nextScreen()'>NEXT PAGE </button>
+  </div>
+  

@@ -1,0 +1,134 @@
+<p>summary-request-modal works!</p>
+
+<!-- @*********************************************************************************************************@ -->
+    <!-- #region SummaryRequestScreen for Request an appointment screen -->
+    <!-- <div id="SummaryRequestModal" style="display:none" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="finalModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal">
+            <div class="modal-content ffily pb-3">
+                <div class="modal-header">
+                    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+                        <div id="SummaryImage" class="col-xl-4 pr-0 epro-logo-dark-col UseRequestSuccessful"><img src="~/data/ePro_Connect_logo_image.png" class="epro-logo-dark" /></div>
+                        <div class="col-xl-8 text-center mt-3 pl-0"><h5 class="modal-title text-lg-left">Appointment Summary</h5></div>
+                    </div>
+                </div>
+                <div class="modal-body epro-final-modal-body">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/data/Group 34416.svg" class="epro-download-app-image" />
+                                    <div class="epro-appt-div">
+                                        <h2 class="epro-appt-heading font-theme">APPOINTMENT REQUEST RECEIVED!</h2>
+                                        <h6 class="epro-appt-text">Thank you, {{requestDetails.inquiryDetail.demographic.firstName}} {{requestDetails.inquiryDetail.demographic.familyName}}! </h6>
+                                        <p class="epro-appt-text-min">Please expect a request response from one of our team members to confirm your request within 1 business day.</p>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <h4 id="patDe1316" class="epro-appt-name"> <i class="fa fa-briefcase" aria-hidden="true"></i> &nbsp; Appointment Type:</h4>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <h4 id="patDe1316" class="epro-appt-name-orange font-theme">{{requestDetails.inquiryDetail.slot.appointmentTypeDesc}}</h4>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <h4 id="patDe1316" class="epro-appt-name"> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp; Preferred Date:</h4>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <h4 id="patDe1316" class="epro-appt-name-orange font-theme">{{requestFormatedDateOnly}}</h4>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <h5 class="epro-practice-name">{{requestDetails.inquiryDetail.client.clientName}}</h5>
+                                    <div class="card epro-appt-footer">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="epro-footer-text epro-mb-2"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;<a href="https://maps.google.com/?q={{SummaryData.inquiryDetail.location.locationAddress}}" target="_blank">{{requestDetails.inquiryDetail.location.locationAddress}}</a></p>
+                                                    <p class="epro-footer-text epro-mb-2"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;<a href="tel:{{requestDetails.inquiryDetail.client.clientPhone}}">{{requestDetails.inquiryDetail.client.clientPhone}}</a></p>
+                                                    <p class="epro-footer-address"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;<a href="mailto:{{requestDetails.inquiryDetail.client.clientEmail}}">{{requestDetails.inquiryDetail.client.clientEmail}}</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
+
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- #endregion SummaryRequestScreen for Request an appointment screen -->
+
+
+
+
+
+
+      
+  
+<div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+        <div id="SummaryImage" class="col-xl-4 pr-0 epro-logo-dark-col UseRequestSuccessful"><img src="assets/images/ePro_Connect_logo_image.png" class="epro-logo-dark" /></div>
+        <div class="col-xl-8 text-center mt-3 pl-0"><h5 class="modal-title text-lg-left">Appointment Summary</h5></div>
+    </div>
+  
+</div>
+<div class="modal-body scrollable-modal-body">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <img src="assets/images/Group 34416.svg" class="epro-download-app-image" />
+                    <div class="epro-appt-div">
+                        <h2 class="epro-appt-heading font-theme">APPOINTMENT REQUEST RECEIVED!</h2>
+                        <!-- <h6 class="epro-appt-text">Thank you, {{requestDetails.inquiryDetail.demographic.firstName}} {{requestDetails.inquiryDetail.demographic.familyName}}! </h6> -->
+                        <p class="epro-appt-text-min">Please expect a request response from one of our team members to confirm your request within 1 business day.</p>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h4 id="patDe1316" class="epro-appt-name"> <i class="fa fa-briefcase" aria-hidden="true"></i> &nbsp; Appointment Type:</h4>
+                        </div>
+                        <div class="col-xl-6">
+                            <!-- <h4 id="patDe1316" class="epro-appt-name-orange font-theme">{{requestDetails.inquiryDetail.slot.appointmentTypeDesc}}</h4> -->
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h4 id="patDe1316" class="epro-appt-name"> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp; Preferred Date:</h4>
+                        </div>
+                        <div class="col-xl-6">
+                            <!-- <h4 id="patDe1316" class="epro-appt-name-orange font-theme">{{requestFormatedDateOnly}}</h4> -->
+                        </div>
+                    </div>
+                    <hr />
+                    <!-- <h5 class="epro-practice-name">{{requestDetails.inquiryDetail.client.clientName}}</h5> -->
+                    <div class="card epro-appt-footer">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- <p class="epro-footer-text epro-mb-2"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;<a href="https://maps.google.com/?q={{SummaryData.inquiryDetail.location.locationAddress}}" target="_blank">{{requestDetails.inquiryDetail.location.locationAddress}}</a></p>
+                                    <p class="epro-footer-text epro-mb-2"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;<a href="tel:{{requestDetails.inquiryDetail.client.clientPhone}}">{{requestDetails.inquiryDetail.client.clientPhone}}</a></p>
+                                    <p class="epro-footer-address"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;<a href="mailto:{{requestDetails.inquiryDetail.client.clientEmail}}">{{requestDetails.inquiryDetail.client.clientEmail}}</a></p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click) = 'nextScreen()'>NEXT PAGE </button>
+</div>

@@ -1,0 +1,164 @@
+<p>card-payment-modal works!</p>
+<!-- #region screen7 CardPayment -->
+<!-- <div id="CardPayment" style="display:none" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal">
+        <div class="modal-content ffily">
+            <div class="modal-header">
+                <div class="row w-100 flex-row-reverse align-items-center mx-0">
+                    <div class="col-xl-4 text-right pr-0 epro-logo-section">
+                        <img src="assets/images//ePro_Connect_logo_image.png"
+                             class="epro-logo-dark" />
+                    </div>
+                    <div class="col-xl-8 text-center mt-3 pl-0">
+                        <h5 class="modal-title text-lg-left">Payment</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body epro-otp-modal-body">
+                <img src="assets/images//Group 35637.svg" class="epro-otp-image mb-3" />
+                <h2 class="epro-otp-heading mb-3">Enter your credit card details</h2>
+                <div class="row mb-4">
+                    <div class="col-xl-6 mx-auto">
+                        <form class="payment-form">
+                            <div class="row epro-personal-details mb-0 mb-xl-2">
+                                <div class="form-group col-xl-6">
+                                    <label class="form-label" for="inputCardNumber">
+                                        Card Number<span class="epro-required">*</span>
+                                    </label>
+                                    <div type="number" id="cc-number" class="form-control alpha-only font-theme"
+                                         ng-model="Payment.cardNumber" required></div>
+                                </div>
+                                <div class="form-group col-xl-6">
+                                    <label class="form-label" for="inputHolderName">
+                                        Card Holder Name<span class="epro-required">*</span>
+                                    </label>
+                                    <div type="text" id="cc-name" class="form-control alpha-only font-theme"
+                                         ng-model="Payment.holderName" required></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xl-6">
+                                    <label class="form-label" for="inputExpiryDate">
+                                        Expiry Date<span class="epro-required">*</span>
+                                    </label>
+                                    <div type="number" id="cc-expiration" class="form-control alpha-only font-theme"
+                                         ng-model="Payment.expiryDate" placeholder="MM/YY" required></div>
+                                </div>
+
+                                <div class="form-group col-xl-6">
+                                    <label class="form-label" for="inputC">
+                                        CVV<span class="epro-required">*</span>
+                                    </label>
+                                    <div type="number" id="cc-cvv" class="form-control alpha-only font-theme"
+                                         ng-model="Payment.cvv" placeholder="CVV" required></div>
+                                </div>
+                            </div>
+                            <button href="#" id="checkout"
+                                    class="butNext screen-seventh btn btn-orange btn-theme mt-4">
+                                <i class="fa fa-lock"
+                                   aria-hidden="true"></i> &nbsp; PROCEED TO SECURE PAYMENT
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div> -->
+<!-- </div> -->
+<!-- #endregion screen7 CardPayment -->
+
+
+<!-- <div id="ModMedCardPayment" style="display:none" class="modal fade" tabindex="-1" role="dialog">
+    <div id="FrameFit" class="modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal">
+        <div class="modal-content ffily">
+            <div class="modal-header">
+                <div class="row w-100 flex-row-reverse align-items-center mx-0">
+                    <div class="col-xl-4 text-right pr-0 epro-logo-section">
+                        <img src="~assets/images//ePro_Connect_logo_image.png"
+                             class="epro-logo-dark" />
+                    </div>
+                    <div class="col-xl-8 text-center mt-3 pl-0">
+                        <h5 class="modal-title text-lg-left">Payment</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body epro-otp-modal-body">
+                <iframe id="paymentGatewayFrame" style="width:100%;height:575px"></iframe>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="modal-header">
+    <div class="modal-body scrollable-modal-body">
+        <div class="row w-100 flex-row-reverse align-items-center mx-0">
+            <div class="col-xl-4 text-right pr-0 epro-logo-section">
+                <img src="assets/images//ePro_Connect_logo_image.png"
+                     class="epro-logo-dark" />
+            </div>
+            <div class="col-xl-8 text-center mt-3 pl-0">
+                <h5 class="modal-title text-lg-left">Payment</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-body epro-otp-modal-body">
+    <img src="assets/images//Group 35637.svg" class="epro-otp-image mb-3" />
+    <h2 class="epro-otp-heading mb-3">Enter your credit card details</h2>
+    <div class="row mb-4">
+        <div class="col-xl-6 mx-auto">
+            <form class="payment-form">
+                <div class="row epro-personal-details mb-0 mb-xl-2">
+                    <div class="form-group col-xl-6">
+                        <label class="form-label" for="inputCardNumber">
+                            Card Number<span class="epro-required">*</span>
+                        </label>
+                        <div type="number" id="cc-number" class="form-control alpha-only font-theme"
+                             ng-model="Payment.cardNumber" required></div>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <label class="form-label" for="inputHolderName">
+                            Card Holder Name<span class="epro-required">*</span>
+                        </label>
+                        <div type="text" id="cc-name" class="form-control alpha-only font-theme"
+                             ng-model="Payment.holderName" required></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xl-6">
+                        <label class="form-label" for="inputExpiryDate">
+                            Expiry Date<span class="epro-required">*</span>
+                        </label>
+                        <div type="number" id="cc-expiration" class="form-control alpha-only font-theme"
+                             ng-model="Payment.expiryDate" placeholder="MM/YY" required></div>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                        <label class="form-label" for="inputC">
+                            CVV<span class="epro-required">*</span>
+                        </label>
+                        <div type="number" id="cc-cvv" class="form-control alpha-only font-theme"
+                             ng-model="Payment.cvv" placeholder="CVV" required></div>
+                    </div>
+                </div>
+                <button href="#" id="checkout"
+                        class="butNext screen-seventh btn btn-orange btn-theme mt-4">
+                    <i class="fa fa-lock"
+                       aria-hidden="true"></i> &nbsp; PROCEED TO SECURE PAYMENT
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click) = 'nextScreen()'>NEXT PAGE </button>
+</div>

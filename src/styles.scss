@@ -1,0 +1,1589 @@
+  :root {
+    --theme-color: #F36A20;
+    --theme-light-color: #F36A20;
+  }
+  
+  .btn-theme , .epro-app-type,
+  #ConfirmAppointmentDetails.form-check-input:checked,
+  .ep-slot-body::-webkit-scrollbar,
+  .ep-slot-body::-webkit-scrollbar-thumb
+  {
+    background-color: var(--theme-color) !important;
+  }
+  
+  #ConfirmAppointmentDetails.form-check-input:checked,
+  #ConfirmAppointment.card-header,
+  #ConfirmAppointment.slots:hover
+  {
+    background-color: var(--theme-light-color) !important;
+  }
+
+  .font-theme , 
+  .btn-theme-light, 
+  #message::placeholder, 
+  #ConfirmPersonalDetails.form-control ::placeholder, #ConfirmPersonalDetails.form-control
+  
+  {
+    color: var(--theme-light-color);
+  }
+
+
+/* Font family */
+@font-face {
+    font-family: 'DunbarTall ExLight';
+    src: url('../src/assets/fonts/DunbarTall-ExtraLight.eot');
+    src: local('../src/assets/fonts/DunbarTall ExLight'), local('../src/assets/fonts/DunbarTall-ExtraLight'), url('../src/assets/fonts/DunbarTall-ExtraLight.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-ExtraLight.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-ExtraLight.woff') format('woff'), url('../src/assets/fonts/DunbarTall-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall Book';
+    src: url('../src/assets/fonts/DunbarTall-Book.eot');
+    src: local('../src/assets/fonts/DunbarTall Book'), local('../src/assets/fonts/DunbarTall-Book'), url('../src/assets/fonts/DunbarTall-Book.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Book.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Book.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall';
+    src: url('../src/assets/fonts/DunbarTall-Medium.eot');
+    src: local('../src/assets/fonts/DunbarTall Medium'), local('../src/assets/fonts/DunbarTall-Medium'), url('../src/assets/fonts/DunbarTall-Medium.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Medium.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Medium.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall Ultra';
+    src: url('../src/assets/fonts/DunbarTall-Ultra.eot');
+    src: local('../src/assets/fonts/DunbarTall Ultra'), local('../src/assets/fonts/DunbarTall-Ultra'), url('../src/assets/fonts/DunbarTall-Ultra.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Ultra.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Ultra.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Ultra.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall';
+    src: url('../src/assets/fonts/DunbarTall-Regular.eot');
+    src: local('../src/assets/fonts/DunbarTall'), local('../src/assets/fonts/DunbarTall-Regular'), url('../src/assets/fonts/DunbarTall-Regular.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Regular.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Regular.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall ExBold';
+    src: url('../src/assets/fonts/DunbarTall-ExtraBold.eot');
+    src: local('../src/assets/fonts/DunbarTall ExBold'), local('../src/assets/fonts/DunbarTall-ExtraBold'), url('../src/assets/fonts/DunbarTall-ExtraBold.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-ExtraBold.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-ExtraBold.woff') format('woff'), url('../src/assets/fonts/DunbarTall-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall Hairline';
+    src: url('../src/assets/fonts/DunbarTall-Hairline.eot');
+    src: local('../src/assets/fonts/DunbarTall Hairline'), local('../src/assets/fonts/DunbarTall-Hairline'), url('../src/assets/fonts/DunbarTall-Hairline.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Hairline.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Hairline.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Hairline.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall';
+    src: url('../src/assets/fonts/DunbarTall-Light.eot');
+    src: local('../src/assets/fonts/DunbarTall Light'), local('../src/assets/fonts/DunbarTall-Light'), url('../src/assets/fonts/DunbarTall-Light.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Light.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Light.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DunbarTall';
+    src: url('../src/assets/fonts/DunbarTall-Bold.eot');
+    src: local('../src/assets/fonts/DunbarTall Bold'), local('../src/assets/fonts/DunbarTall-Bold'), url('../src/assets/fonts/DunbarTall-Bold.eot?#iefix') format('embedded-opentype'), url('../src/assets/fonts/DunbarTall-Bold.woff2') format('woff2'), url('../src/assets/fonts/DunbarTall-Bold.woff') format('woff'), url('../src/assets/fonts/DunbarTall-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    font-family: 'DunbarTall';
+}
+
+@media (min-width: 1200px) {
+    .modal-cutsom-modal {
+        max-width: 1080px;
+    }
+
+        .modal-cutsom-modal .epro-left-img {
+            margin-left: -16px;
+        }
+}
+
+.modal-cutsom-modal .modal-content {
+    border-radius: 1.25rem;
+    min-height: 47rem;
+}
+
+.modal-cutsom-modal.modal-cutsom-login {
+    max-width: 773px;
+}
+
+    .modal-cutsom-modal.modal-cutsom-login .modal-content {
+        min-height: 33rem
+    }
+
+.finalPay {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.modal-cutsom-modal .btn-close {
+    background-size: 14px 14px;
+}
+
+.modal-cutsom-modal .modal-heading {
+    font-size: 2.5rem;
+    border-bottom: 1px solid #C9D9E7;
+    color: #000000;
+    font-family: 'DunbarTall';
+    margin-bottom: 1.75rem;
+    padding-bottom: 2.0625rem;
+    font-weight: 500;
+}
+
+    .modal-cutsom-modal .modal-heading h1 {
+        font-size: 1.625rem;
+    }
+
+.modal-cutsom-modal select.form-select, .modal-cutsom-modal input[type=text], .modal-cutsom-modal select.form-select option, .modal-cutsom-modal input[type=date], .modal-cutsom-modal .form-control {
+    font-size: 0.875rem;
+    font-family: 'DunbarTall';
+    font-weight: normal;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    height: calc(2.5em + .75rem + 3px);
+}
+
+.message-control {
+    min-width: 200px;
+    min-height: 80px;
+}
+
+.calendar-button {
+    font-family: 'DunbarTall';
+    text-align: center
+}
+
+.g-pay {
+    height: 65px;
+    cursor: pointer;
+}
+
+.apple-pay {
+    height: 65px;
+    cursor: pointer;
+}
+
+
+.modal-cutsom-modal label {
+    font-size: 1rem;
+    color: #000000;
+    font-family: 'DunbarTall';
+    font-weight: 600;
+}
+
+.modal-cutsom-modal .btn-orange {
+    font-family: 'Roboto', sans-serif;
+    height: 50px;
+    font-size: 1rem;
+    background-color: #F36A20;
+    border-radius: 0px;
+}
+
+    .modal-cutsom-modal .btn-orange:hover, .modal-cutsom-modal .btn-orange:focus {
+        background-color: #f38448;
+        box-shadow: none;
+        color: #ffffff;
+    }
+
+.modal-cutsom-modal .modal-body {
+    padding-bottom: 0px;
+}
+
+.modal-cutsom-modal .epro-left-img {
+    margin-top: 0;
+    position: relative;
+    bottom: -15px;
+}
+
+/*.modal-cutsom-modal img.epro-logo {
+    z-index: 1;
+    position: relative;
+    margin-left: 20px;
+    margin-top: -20px;
+    max-height: 114px;
+    height: 80px;
+}*/
+
+.modal-cutsom-modal img.epro-first-logo {
+    z-index: 1;
+    position: relative;
+    margin-left: 20px;
+    max-height: 114px;
+    height: 114px;
+}
+
+.epro-avail-form {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+}
+
+.epro-slots-div {
+    margin-bottom: 2.25rem;
+}
+
+.epro-logo-dark-col {
+    text-align: right;
+}
+
+.epro-logo-dark {
+    max-width: 130px;
+}
+
+.epro-logo-img {
+    max-width: 130px;
+}
+
+.modal-cutsom-modal .modal-header {
+    border-bottom: 0px;
+}
+
+.epro-datetime-modal .modal-title, .epro-datetime-modal .epro-calc-heading {
+    font-size: 1.625rem;
+    font-weight: bold;
+    font-family: 'DunbarTall';
+}
+
+.epro-datetime-modal .epro-calc-heading {
+    font-size: 1.5625rem;
+    padding-top: 10px;
+    padding-top: 0px;
+    margin-bottom: 2rem;
+}
+
+.epro-datetime-modal .modal-header {
+    border-bottom: 1px solid #D3E1ED;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.epro-datetime-modal .modal-content {
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    padding-bottom: 2.5rem;
+}
+
+.datepicker table, .datepicker td, .datepicker th {
+    font-size: 0.75rem;
+    font-family: 'DunbarTall';
+    font-weight: 500;
+}
+
+.datepicker .datepicker-switch {
+    font-size: 0.875rem;
+}
+
+.epro-mb-2 {
+    margin-bottom: 0.75rem !important;
+}
+
+.ePro-button {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.datepicker {
+    width: 100%;
+    border: 0px solid #ced4da;
+    border-radius: 10px;
+}
+
+    .datepicker .prev, .datepicker .datepicker-switch, .datepicker .next {
+        padding: 10px 0 20px;
+    }
+
+    .datepicker table tr td.new, .datepicker table tr td.old {
+    }
+
+    .datepicker table tr td.today, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today:hover {
+        height: 24px;
+        width: 20px;
+        color: #fff;
+    }
+
+    .datepicker table tr td.day {
+        height: 67px;
+        width: 20px;
+    }
+
+    .datepicker table tr td.today.active, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled.active, .datepicker table tr td.today.disabled.disabled, .datepicker table tr td.today.disabled:active, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today.disabled:hover.active, .datepicker table tr td.today.disabled:hover.disabled, .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today.disabled:hover:hover, .datepicker table tr td.today.disabled:hover[disabled], .datepicker table tr td.today.disabled[disabled], .datepicker table tr td.today:active, .datepicker table tr td.today:hover, .datepicker table tr td.today:hover.active, .datepicker table tr td.today:hover.disabled, .datepicker table tr td.today:hover:active, .datepicker table tr td.today:hover:hover, .datepicker table tr td.today:hover[disabled], .datepicker table tr td.today[disabled] {
+        color: #fff;
+    }
+
+a {
+    text-decoration: none;
+}
+
+.ep-slot-header {
+    max-width: 100%;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+}
+
+.slots {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+    .slots .tooltiptext {
+        visibility: hidden;
+        /*width: 120px;*/
+        background-color: #727476;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 8px;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+        .slots .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #727476 transparent;
+        }
+
+    .slots:hover .tooltiptext {
+        visibility: visible;
+    }
+
+.slots {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    font-size: 0.8125rem;
+    background-color: #FAFAFA;
+    border: 1px solid #C9D9E7;
+    font-family: 'DunbarTall';
+    font-weight: 500;
+    color: #000;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    line-height: 30px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+    .slots:hover {
+        text-decoration: none;
+        color: #777;
+    }
+
+.epro-slots-fill {
+    background-color: #F36A20;
+    /*border: 1px solid #F36A20;*/
+    color: white !important;
+}
+
+    .epro-slots-fill:hover {
+        color: white;
+        background-color: #f38448;
+    }
+
+.datepicker .datepicker-switch:hover, .datepicker .next:hover, .datepicker .prev:hover, .datepicker tfoot tr th:hover {
+    background: none;
+}
+
+.modal-cutsom-modal .epro-location-label {
+    font-size: 1.25rem;
+}
+
+.epro-appt-name, .epro-appt-name-orange {
+    text-align: left;
+    font-weight: 400;
+    color: #000;
+    font-size: 1rem;
+    font-family: 'DunbarTall';
+}
+
+.epro-practice-name {
+    text-align: center;
+    font-weight: 900;
+    color: #000;
+    font-size: 1rem;
+    font-family: 'DunbarTall';
+    margin-top: 1.2rem;
+}
+
+.epro-appt-name-orange {
+    color: #F0592B;
+    font-weight: 600;
+    text-align: left;
+}
+
+.epro-appt-calendar {
+}
+
+.epro-location-label i {
+    color: #778082;
+    font-size: 1.125rem;
+    padding-right: 5px;
+}
+
+.epro-location-name, .epro-location-address, .epro-appoint-details, .epro-otp-heading, .epro-appt-text {
+    color: #000;
+    font-size: 1rem;
+    font-family: 'DunbarTall';
+    font-weight: 600;
+}
+
+.epro-location-address {
+    color: #778082;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+}
+
+.epro-appt-text-cal {
+    color: #778082;
+    font-family: DunbarTall;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: right;
+    cursor: pointer;
+}
+
+.epro-appt-text-min {
+    color: #778082;
+    font-family: DunbarTall;
+    font-size: 0.875rem;
+}
+
+.epro-appt-text-team {
+    /*color: #778082;*/
+    font-family: DunbarTall;
+    /*font-size: 0.75rem;*/
+    font-weight: 400;
+    margin-top: 2rem;
+}
+
+.epro-appoint-details, .epro-appt-heading {
+    font-family: 'DunbarTall';
+    font-size: 1.25rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.epro-appt-heading {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #3DC98D;
+}
+
+epro-otp-heading {
+    font-size: 1.25rem;
+    margin-bottom: 2em;
+}
+
+.cientNameWithProvider {
+    padding: 20px 0 40px;
+}
+
+.epro-edit-btn {
+    border: 0;
+    border-radius: 30px;
+    font-weight: normal;
+    font-size: 0.75rem;
+    padding: 6px 13px;
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+    background-color: #F36A20;
+}
+
+.epro-app-type {
+    border: 2px;
+    border-style: solid;
+    /*background-color: #FFE7E0;*/
+    margin-bottom: 2rem;
+}
+
+.epro-edit-btn i {
+    margin-right: 2px;
+}
+
+.epro-edit-btn:hover {
+    background-color: #f38448;
+}
+
+.appointment-name {
+    margin-bottom: 0;
+}
+
+.appointment-name {
+    font-size: 1rem;
+    font-family: 'DunbarTall';
+    color: #000;
+    font-weight: 500;
+    line-height: 1.7rem;
+}
+
+    .appointment-name span {
+        color: #78849E;
+        font-weight: normal;
+        padding-right: 5px;
+    }
+
+    .appointment-name i {
+        margin-right: 2px;
+    }
+
+.consultation-fees {
+    text-align: left;
+}
+
+.form-check .form-check-label {
+    font-size: 0.875rem;
+    font-weight: normal;
+}
+
+.form-check {
+    margin-bottom: 0.8rem;
+}
+
+.details-form-check {
+    padding-left: 2.3em;
+}
+
+.swal2-popup {
+    font-family: 'DunbarTall';
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: #f38448;
+}
+
+.message-control {
+    font-size: 0.875rem;
+    font-family: 'DunbarTall';
+    font-weight: normal;
+    min-height: 75px;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+
+    .message-control:focus {
+        border-color: #c0392b;
+        outline: 0;
+        box-shadow: none;
+    }
+
+.pop-up-para {
+    font-size: 1rem !important;
+    font-family: 'DunbarTall' !important;
+}
+
+.mt-message-para p {
+    font-size: 0.9rem !important;
+    font-family: 'DunbarTall' !important;
+}
+
+@media (max-width: 1366px) {
+    .modal-body .epro-personal-details {
+        margin-top: 10px !important;
+    }
+
+    .mt-message-para p {
+        font-size: 14px !important;
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .modal-cutsom-modal .epro-left-img {
+        bottom: 0;
+    }
+
+    .epro-personal-details.epro-dob-details, .epro-dob-details {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 1025px) {
+    .epro-datetime-modal .modal-title, .epro-datetime-modal .epro-calc-heading, .modal-cutsom-modal .modal-heading {
+        font-size: 1.5rem;
+    }
+
+    .modal-cutsom-modal input[type=date] {
+        padding-top: 8px;
+        // display: flex;
+        align-items: center;
+    }
+
+    .epro-otp-image {
+        width: 60% !important;
+    }
+
+    .btn-download {
+        margin-bottom: 16px;
+    }
+
+    .qr-code {
+        width: 204px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ep-slot-body {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        overflow-y: auto;
+        min-height: 325px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        max-height: 325px;
+    }
+
+    .ep-datepicker-box {
+        min-height: 358px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        max-height: 358px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ep-slot-body {
+        flex-direction: column;
+        align-items: center;
+        overflow: inherit;
+    }
+
+    .ep-datepicker-box .ep-slot-body .card-header, .ep-slot-body {
+        display: block !important;
+    }
+
+    .ep-slot-header {
+        display: none;
+    }
+
+    .ep-custom-card .slots {
+        display: inline-block;
+    }
+
+    .ep-slot-body .ep-custom-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+        .ep-slot-body .ep-custom-card .slots {
+            display: inline-block;
+            margin: 5px;
+        }
+
+    .ep-custom-card .card-body {
+        text-align: left !important;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    .epro-logo-dark-col {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .qr-code {
+        width: unset;
+    }
+
+    .modal-cutsom-modal img.epro-logo {
+        display: block;
+        margin: 0 auto;
+        margin-top: -20px;
+    }
+
+    .margin-div {
+        margin-top: 20px;
+    }
+
+    .epro-logo-section {
+        padding-left: 0;
+    }
+
+        .epro-logo-section .epro-logo-dark {
+            display: block;
+            margin: 0 auto;
+        }
+}
+
+
+.epro-otp-image {
+    width: 25%;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+.epro-otp-modal-body {
+    text-align: center;
+}
+
+.epro-final-modal-body {
+    text-align: center;
+}
+
+.form-control {
+    margin-right: 12px;
+    /*line-height: 53px;*/
+}
+
+.inputbox-field span {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.inputbox-field .form-check-input {
+    margin-left: 0;
+}
+
+.form-control:focus {
+    border-color: #c0392b;
+    outline: 0;
+    box-shadow: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.epro-highlight-text-orange {
+    color: #F36A20;
+}
+
+.epro-error-details {
+    color: #000;
+    font-size: 1rem;
+    font-family: 'DunbarTall';
+    font-weight: 600;
+}
+
+
+.text-right{
+    text-align: right
+}
+
+.pr-0{
+    padding-right: 0px;
+}
+
+.pl-0{
+    padding-left: 0;
+}
+
+.noSlots {
+    /* display: inline-block;*/
+    font-size: 0.75rem;
+    /* background-color: #FAFAFA;
+    border: 1px solid #C9D9E7;*/
+    font-family: 'DunbarTall';
+    font-weight: 400;
+    color: #000;
+    /* border-radius: 5px;*/
+    text-align: center;
+    margin: 5px;
+    line-height: 30px;
+    padding: 5px;
+    height: 210px;
+}
+
+
+.epro-required {
+    color: red;
+}
+
+.epro-required-error {
+    color: red;
+    box-shadow: 0 0 5px red;
+}
+
+.epro-required-feedback {
+    width: 100%;
+    font-size: .875em;
+    color: red;
+    font-family: 'DunbarTall';
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.epro-div {
+    margin-bottom: 2rem;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.flag-container {
+    font-family: DunbarTall;
+}
+
+.country-list {
+    white-space: normal !important;
+    width: 255px;
+}
+
+.epro-image-center {
+    text-align: center;
+}
+
+.epro-personal-details {
+    margin-top: 20px !important;
+}
+
+.form-check-input:checked {
+    /* background-color: #F36A20;*/
+    border-color: #A0A5B2;
+}
+
+::placeholder {
+    color: red;
+}
+
+.epro-otp-box {
+    text-align: center;
+    margin-right: 0px;
+    /* font-size:larger;*/
+}
+
+.epro-slots-box {
+    overflow-y: scroll;
+    height: 220px;
+}
+
+/*::-webkit-scrollbar {
+    width: 5px;*/
+/* background: transparent;  make scrollbar transparent */
+/*}*/
+/*======================
+    common css 
+=========================*/
+.mb26 {
+    margin-bottom: 40px !important;
+}
+
+.resendOtp {
+    cursor: pointer;
+}
+
+/* 29 -Dec -2023 Issue*/
+
+$BaseBG: #ffffff; // newChanges
+
+.digit-group {
+    /*width: 30px;*/
+    height: 50px;
+    // background-color: lighten($BaseBG, 5%);
+    background-color: lighten($BaseBG, 5%);
+    border: none;
+    line-height: 50px;
+    text-align: center;
+    /*font-size: 24px;*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    color: white;
+    margin: 0 2px;
+}
+
+.splitter {
+    padding: 0 5px;
+    color: white;
+    font-size: 24px;
+}
+
+.prompt {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+
+.epro-download-app-image {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 70%;
+}
+
+.epro-appt-div {
+    margin: 0 auto;
+    max-width: 75%;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.85em;
+}
+
+
+.epro-footer-address {
+    margin-bottom: 0 !important;
+    text-align: left;
+    font-family: 'DunbarTall';
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.epro-footer-text {
+    text-align: left;
+    font-family: 'DunbarTall';
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.epro-appt-footer {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.qr-code {
+    max-width: 250px;
+    margin: 10px;
+    width: 233px;
+}
+
+.epr-qr-code-img {
+    margin-top: 2.5rem;
+    margin-bottom: 2.2rem;
+}
+
+.btn-download {
+    width: 50% !important;
+    margin-bottom: 34px;
+}
+
+.epro-download-box { /*
+    background: #EAEFF2;*/
+    border: solid 1px;
+}
+
+.epro-download-box-body {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+.epro-download-box-heading {
+    /*color: #778082;*/
+    color: #000000;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'DunbarTall';
+    font-weight: 600;
+}
+
+.epro-download-box-text {
+    color: #778082;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    font-family: 'DunbarTall';
+    /* font-weight: 300;*/
+}
+
+.epro-qr-bold {
+    color: #778082;
+    font-family: 'DunbarTall';
+    font-weight: 600;
+}
+
+
+.mobile-input .intl-tel-input {
+    width: 100%
+}
+
+.epro-details-checkbox-div {
+    min-height: 70px;
+}
+
+.epro-otp-heading {
+    font-size: 1.56rem;
+    line-height: 30px;
+    color: #778082;
+}
+
+.epro-error-image {
+    width: 25%;
+    margin-bottom: 1em;
+}
+
+.epro-error-text {
+    font-size: 18px !important;
+    margin: 30px 0 !important;
+    line-height: 26px;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .datepicker table tr td.day {
+        height: 30px;
+        width: 30px;
+    }
+
+    .table-condensed {
+        height: 315px;
+    }
+
+    .badge.epro-edit-btn {
+        margin-top: 20px;
+    }
+
+    .epro-otp-image {
+        width: 60%;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.sd-container {
+    position: relative;
+    float: left;
+}
+
+.sd {
+    padding: 5px 10px;
+    height: 30px;
+    width: 100%;
+}
+
+.open-button {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+
+    .open-button button {
+        border: none;
+        background: transparent;
+    }
+
+/* For Firefox Calendar Icon 29-Dec-2023  */
+@-moz-document url-prefix() {
+    [type="date"] {
+        background-image: none !important;
+    }
+    
+   
+}
+.epr-patient-waitDate {
+    padding-right: 3px;
+}
+
+
+[type="date"] {
+    background: #FAFAFA url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 98% 55% no-repeat;
+}
+
+    [type="date"]::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    [type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+    }
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-ms-clear {
+    display: none;
+}
+
+/* Hide the cancel button */
+::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+/* Hide the magnifying glass */
+::-webkit-search-results-button {
+    -webkit-appearance: none;
+}
+
+/* Remove the rounded corners */
+input[type=search] {
+    -webkit-appearance: none;
+}
+
+input[type=date] {
+}
+
+.payment-form {
+    text-align: left
+}
+
+
+.iti {
+    width: 100% !important;
+}
+
+.month {
+    padding: 5px;
+    background: #FAFAFA;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 3px 0px 3px 3px;
+    font-size: 0.875rem;
+    font-family: 'DunbarTall';
+    font-weight: normal;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    height: calc(2.5em + 0.75rem + 3px);
+    /* color: rgb(233, 72, 144);*/
+}
+
+.day {
+    padding: 5px;
+    background: #FAFAFA;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 3px 0px 3px 3px;
+    font-size: 0.875rem;
+    font-family: 'DunbarTall';
+    font-weight: normal;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    height: calc(2.5em + 0.75rem + 3px);
+    /* color: rgb(233, 72, 144);*/
+}
+
+.year {
+    padding: 5px;
+    background: #FAFAFA;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 3px 0px 3px 3px;
+    font-size: 0.875rem;
+    font-family: 'DunbarTall';
+    font-weight: normal;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    height: calc(2.5em + 0.75rem + 3px);
+    /*color: rgb(233, 72, 144);*/
+}
+/*Date: 23-09-2022*/
+#VerifyPatientDetails .epro-datetime-modal .modal-header {
+    border-bottom: none;
+}
+
+.sv-booking-details, .sv-booking-footer {
+    border: 1px solid #D3E1ED;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    padding: 30px;
+}
+
+.card-footer.sv-booking-footer:last-child {
+    border-radius: 0 0 20px 20px;
+    border-bottom: 1px solid #D3E1ED;
+}
+
+.sv-patient-details {
+    background: #F5F7F9;
+    border: 1px solid #E6EDF5;
+    border-radius: 8px;
+    height: calc(100% - 40px);
+    padding: 20px;
+    line-height: 35px;
+}
+
+.sv-patient-box .epro-appoint-details {
+    font-family: 'Roboto',sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+.sv-patient-details {
+    font-family: 'Roboto',sans-serif;
+    font-size: 16px;
+    color: #000;
+    line-height: 24px;
+}
+
+.sv-booking-footer .form-check-input:disabled ~ .form-check-label {
+    color: #000;
+    font-family: 'Roboto',sans-serif;
+}
+
+
+
+/*View Monthly Calendar*/
+.ep-custom-card {
+    max-width: 20%;
+    flex: 0 0 20%;
+    padding: 2px;
+}
+
+.ep-head-datepicker {
+    margin-bottom: 8px;
+}
+
+    .ep-head-datepicker .ep-cl-btns button {
+        background-color: rgb(251 233 241);
+        width: 50px;
+        height: 50px;
+        border-radius: 0;
+        margin-bottom: 0px;
+    }
+
+        .ep-head-datepicker .ep-cl-btns button:hover {
+            background-color: rgb(233, 72, 144);
+        }
+
+            .ep-head-datepicker .ep-cl-btns button:hover i {
+                color: #fff;
+            }
+
+    .ep-head-datepicker .ep-right-btn {
+        padding-left: 5px;
+    }
+
+    .ep-head-datepicker .ep-cl-btns i {
+        color: #e94890;
+    }
+
+    .ep-head-datepicker .ep-left-btn {
+        padding-right: 5px;
+    }
+
+    .ep-head-datepicker .ep-center-btn {
+        width: 100%;
+    }
+
+        .ep-head-datepicker .ep-center-btn:focus, .ep-head-datepicker .ep-cl-btns button:focus {
+            box-shadow: none;
+        }
+
+        .ep-head-datepicker .ep-center-btn i {
+            margin-left: 10px
+        }
+
+        .ep-head-datepicker .ep-center-btn button {
+            margin-bottom: 0px;
+            border-radius: 0;
+            min-height: 50px;
+        }
+
+            .ep-head-datepicker .ep-center-btn button:hover {
+                color: #fff;
+            }
+
+.ep-custom-card .card-body {
+    padding: 5px 0;
+}
+
+
+
+.ep-datepicker-box .ep-slot-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.ep-datepicker-box .ep-slot-body::-webkit-scrollbar {
+    width: 6px;
+    /*background-color: rgb(251 233 241);*/
+}
+
+.ep-datepicker-box .ep-slot-body::-webkit-scrollbar-thumb {
+    /*background-color: black;*/
+}
+
+.ep-datepicker-box .card-header {
+    /*background-color: rgb(251 233 241);*/
+    border: 0px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 0px;
+    letter-spacing: 1px;
+}
+
+.ep-datepicker-box .card {
+    border: 0px;
+}
+
+.ep-custom-card .slots {
+    border-color: #ececec;
+    border-radius: 100px;
+    background: none;
+    width: auto;
+    min-width: 80px;
+    padding: 0px 15px;
+    height: auto;
+    color: #3c3b42;
+    transition: 0.3s all ease-in-out;
+    font-size: 0.75rem;
+    max-width: 112px;
+    clear: both;
+    display: block;
+    margin: 1px auto 5px;
+}
+
+    .ep-custom-card .slots:hover {
+        /*background-color: rgb(255 237 245);*/
+        border-color: rgb(255 227 239);
+        color: #010000;
+    }
+
+span.ep-not-available {
+    font-size: 12px;
+    font-family: 'DunbarTall';
+    display: block;
+    margin-bottom: 12px;
+    margin-top: 2px;
+    letter-spacing: 1px;
+    padding-left: 15px;
+}
+
+.row.epro-personal-details.epro-details-checkbox-div .form-group.col-xl-4 .form-select.col-xl-6 {
+    max-width: 100%;
+}
+
+.form-group #CheckforWaitlist {
+    padding-left: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.row.epro-personal-details.epro-dob-details .form-group.col-xl-4 select.year {
+    width: 28%;
+}
+
+.row.epro-personal-details.epro-dob-details .form-group.col-xl-4 select {
+    margin-right: 4px;
+}
+
+    .row.epro-personal-details.epro-dob-details .form-group.col-xl-4 select:last-child {
+        margin-right: 0px;
+    }
+
+.row.epro-personal-details.epro-details-checkbox-div .form-group.col-xl-8 {
+    padding-left: 32px;
+}
+
+    .row.epro-personal-details.epro-details-checkbox-div .form-group.col-xl-8 .form-control.col-xl-6 {
+        width: calc(106% - 15px);
+        max-width: 106%;
+        margin-left: -20px;
+        margin-top: 7px;
+    }
+
+
+
+@media only screen and (max-width:991px) {
+    .ep-datepicker-box {
+        max-height: inherit;
+        overflow-y: inherit;
+    }
+
+    .ep-datepicker-box {
+        width: 100%;
+        display: block !important;
+    }
+
+    .ep-custom-card {
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
+
+        .ep-datepicker-box .card-header, .ep-custom-card .card-body {
+            text-align: left !important
+        }
+
+    .ep-head-datepicker .ep-center-btn button {
+        font-size: 1rem;
+    }
+
+    .ep-head-datepicker .ep-cl-btns button {
+        width: 45px;
+        height: 45px;
+    }
+
+    .ep-head-datepicker .ep-center-btn button {
+        height: 45px;
+        min-height: 45px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .inputbox-field label {
+        text-align: left !important;
+    }
+
+    .inputbox-field span {
+        margin-left: 17px;
+    }
+
+    .ep-datepicker-box .card-header {
+        padding: 0.3rem 1rem;
+        height: 100%;
+    }
+
+    .ep-custom-card .slots {
+        padding: 6px 9px;
+        min-width: 70px;
+        line-height: 1.5;
+    }
+
+    .sv-booking-scroll .row {
+        margin: 0;
+    }
+
+    .sv-patient-details {
+        margin-bottom: 10px;
+    }
+
+    .sv-patient-box .epro-appoint-details {
+        font-size: 15px;
+    }
+
+    .sv-verify-details-booking .epro-datetime-modal .modal-content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .sv-mtmb-15 {
+        margin-top: 1rem;
+    }
+
+    .sv-verify-details-booking .sv-booking-details {
+        padding: 5px;
+        padding-bottom: 10px;
+    }
+
+    .sv-verify-details-booking .epro-appoint-details .badge.epro-edit-btn {
+        letter-spacing: 0.1rem;
+    }
+
+    .sv-verify-details-booking .sv-booking-footer {
+        padding: 10px 30px;
+    }
+
+    .sv-verify-details-booking .badge.epro-edit-btn {
+        margin-top: 0px
+    }
+
+    .sv-verify-details-booking .sv-patient-details {
+        padding: 10px 0px 0;
+        font-size: 13px;
+    }
+
+    .sv-verify-details-booking .epro-datetime-modal .modal-title {
+        font-size: 1.2rem;
+    }
+
+    .sv-verify-details-booking .sv-booking-scroll {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .sv-verify-details-booking .col-md-4.mb-2 {
+        margin-bottom: 0px !important;
+        line-height: 1.3;
+    }
+
+    .sv-verify-details-booking .modal-body.sv-booking-modal {
+        padding: 1rem 0px;
+    }
+
+    .sv-verify-details-booking .col-md-6 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .sv-verify-details-booking .mb-xs-1 {
+        margin-bottom: 0.8rem !important;
+    }
+
+    .sv-verify-details-booking .sv-patient-box .epro-appoint-details {
+        margin-bottom: 10px;
+    }
+
+    .sv-verify-details-booking .epro-appoint-details {
+        margin-bottom: 0rem;
+    }
+
+    .sv-email-wrap {
+        word-break: break-word;
+    }
+
+    .modal-cutsom-modal h1.epro-header-text {
+        text-align: center !important;
+    }
+    /*some change in model section*/
+    .model-schedule .modal-header {
+        padding: 0.4rem 1rem !important;
+    }
+
+    .model-schedule .modal-heading {
+        padding-bottom: 1.2625rem;
+    }
+
+    .model-schedule .epro-header-text {
+        font-size: 20px !important;
+    }
+
+    .modal-cutsom-modal img.epro-logo {
+        height: 80px !important;
+    }
+
+    .form-select-field {
+        margin-bottom: 10px;
+    }
+
+    .row.epro-personal-details.epro-dob-details .form-group.col-xl-4 select.year {
+        width: auto;
+    }
+}
+.digit-1{
+    margin-right: 0px !important;
+}
+@media only screen and (min-width: 1200px) {
+    .adj-hduhau-box {
+        margin-top: 32px
+    }
+}

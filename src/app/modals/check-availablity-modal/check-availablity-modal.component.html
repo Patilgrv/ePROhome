@@ -1,0 +1,75 @@
+   <div class="modal-header">
+    <div class="row w-100 flex-row-reverse align-items-center mx-0">
+      <div class="col-xl-4 pr-0 text-right epro-logo-section">
+        <!-- <img src="assets/images/ePro_Connect_logo_image.png" class="epro-logo-dark" /> -->
+        <img src="https://rsac-pwa-resources.s3.us-west-2.amazonaws.com/icons/1040_LOGO_N512.png" class="epro-logo-dark" />
+      </div>
+      <div class="col-xl-8 text-center mt-3 pl-0">  
+        <h5 class="modal-title text-lg-left">Schedule Your Appointment Today!</h5>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body scrollable-modal-body">
+    <div class="row justify-content-xl-center">
+      <div class="col-xl-12">
+        <form class="epro-avail-form margin-div"  action="/"  >
+          <div class="row mb-3">
+            <div class="form-group col-xl-12 mb-0 ">
+              <label for="locatsion" class="form-label">Location<span class="epro-required">*</span></label>
+              <select class="form-select font-theme" id="location" name="location" required (change)="onLocationChange($event)">
+                <option class="font-theme" style="font-family:DunbarTall" value="">
+                  Select
+                </option>
+                 <option class="font-theme" style="font-family:DunbarTall" *ngFor="let location of locations" [value]="location.rsaC_LOCATION_SRC_ID">
+                  {{location.rsaC_LOCATION_NME}}
+                </option>
+              </select>
+
+              <div class="invalid-feedback">Please select a location.</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xl-12">
+              <label for="appoinstmentType" class="form-label">Appointment Type<span class="epro-required">*</span></label>
+              <select class="form-select font-theme" id="appointmentType" name="appointmentType" required (change)="OnAppointmentTypeChange($event)" >
+                <option class="font-theme" value="">Select</option>
+       
+                <option class="font-theme" *ngFor="let appointment of appointmentTypes" [value]="appointment.appointmentTypeSrcID">
+                  {{appointment.appointmentTypeDesc}}
+                </option>
+              
+              </select>
+              <div class="invalid-feedback">Please select an appointment type.</div>
+            </div>
+          </div> 
+
+         <div class="row mt-3" >
+            <div class="form-group col-xl-12" *ngIf = "providers.length > 0">
+              <label for="prosvider" class="form-label">Provider</label>
+              <select class="form-select font-theme" id="provider" name="provider" required>
+
+                <option class="font-theme" *ngFor="let typeData of providers"  [selected]="typeData.rsaC_PERSON_SRC_ID == 0" [value]="typeData.rsaC_PERSON_SRC_ID">
+                  {{typeData.personName}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xl-12 mt-3">
+              <label for="appointmenstDate" class="form-label">Preferred Date<span class="epro-required">*</span></label>
+              <input class="form-control font-theme" type="date"  [min]="minDate" id="appointmentDate" [value]="minDate" name="appointmentDate" 
+              (change)="OnDateChange($event)" 
+              required>
+              <div class="invalid-feedback">Please select a preferred date.</div>
+            </div>
+          </div>
+          <br/>
+          <button class="butNext screen-first btn btn-orange btn-theme mt-4" type="submit" (click)="onSubmit($event)">
+            NEXT
+          </button>
+        </form>
+      </div>
+      <br />
+    </div>
+  </div>
+  
