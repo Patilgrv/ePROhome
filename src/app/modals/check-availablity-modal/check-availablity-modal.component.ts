@@ -6,7 +6,7 @@ import { AppointmentType, Locations } from '../../shared/interface/GetAllLocatio
 import { GlobalValuesService, LocationService } from '../../shared/services/global/global.service';
 import { CommonService } from '../../shared/services/common/common.service';
 import { RestapiService } from '../../shared/services/restapi/restapi.service';
-import { TimeSlotService } from '../../shared/services/get-time-slots/time-slots.service';
+import { TimeSlotService } from '../../shared/services/get-time-slotss/time-slots.service';
 
 
 @Component({
@@ -58,7 +58,7 @@ import { TimeSlotService } from '../../shared/services/get-time-slots/time-slots
 
   getAllLocations() {
     this.rsaC_API_CLIENT_KEY = this.globalValuesService.get<any>('rsaC_API_CLIENT_KEY');
-    let api = this.commonServices.apiParams(`GetAllLocations`,`?accessToken=noToken&clientDom=${this.rsaC_API_CLIENT_KEY}`);
+    let api = this.commonServices.apiParams(`RSACSchedulerSlotParameters`,``);
     this._restApiServices.getData(api)
       .pipe(first()).subscribe({
         next: (res: any) => {
@@ -113,7 +113,7 @@ import { TimeSlotService } from '../../shared/services/get-time-slots/time-slots
   const date = this.selectedDate;
   const appointmentTypeId = this.selectedAppointmentID;
   const locationId = this.selectedLocationID;
-  const providerSrcId = this.selectedproviderID 
+  const providerSrcId = this.selectedproviderID || '0'
 
   this.timeSlotService.getTimeSlots(date, appointmentTypeId, locationId, providerSrcId).subscribe((result : any) => {  //used for navigation value only
   this.useRequestForm = result?.inquiryDetail?.validate?.useRequestForm;

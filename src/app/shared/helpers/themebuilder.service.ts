@@ -13,3 +13,4 @@ export class ThemebuilderService {
     root.style.setProperty('--theme-light-color',  lightColor);
   }
 }
+ 

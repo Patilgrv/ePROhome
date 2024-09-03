@@ -32,7 +32,7 @@ export class ManifestService {
   
   
     getManifest(accessToken: string, clientDom: string): Observable<boolean> {
-    let api = this.commonServices.apiParams(`GetManifest`,`?clientDom=${clientDom}`);
+    let api = this.commonServices.apiParams(`RSACSchedulerManifest`,'');
     return new Observable((subscriber) => {  this._restApiServices.getData(api)
     .pipe(first()).subscribe({
       next: (res: any) => {
@@ -41,7 +41,7 @@ export class ManifestService {
           this.processManifestData(clientDom);
           subscriber.next(this.manifestData)
         } else {
-          this.logAndHandleError("An error occurred while retrieving the manifest details (RSACSchedulerManifest).");
+          this.logAndHandleError("An error occurred while retrieving the manifest details (RSACSchedulerManifesst).");
           subscriber.next(true)
         }
     }});
@@ -96,17 +96,17 @@ export class ManifestService {
     document.body.insertBefore(noscriptElement, document.body.firstChild);
   }
 
-  private applyThemeStyles(): void {
-    document.querySelectorAll('.btn-theme').forEach(el => el.setAttribute('style', `background-color: ${this.themeColor}`));
-    document.querySelectorAll('.font-theme').forEach(el => el.setAttribute('style', `color: ${this.themeColor}`));
+  // private applyThemeStyles(): void {
+  //   document.querySelectorAll('.btn-theme').forEach(el => el.setAttribute('style', `background-color: ${this.themeColor}`));
+  //   document.querySelectorAll('.font-theme').forEach(el => el.setAttribute('style', `color: ${this.themeColor}`));
     
-    this.appendStyleToElement('#message', `::placeholder { color: ${this.themeColor}; }`);
-    this.appendStyleToElement('.epro-app-type', `background-color: ${this.themeColor};`);
-    this.appendStyleToElement('.btn-theme-light', `background-color: ${this.themeLightColor};`);
-    this.appendStyleToElement('#ConfirmPersonalDetails', `.form-control::placeholder { color: ${this.themeColor}; } .form-control { color: ${this.themeColor}; }`);
-    this.appendStyleToElement('#ConfirmAppointmentDetails', `.form-check-input:checked { background-color: ${this.themeColor}; }`);
-    this.appendStyleToElement('#ConfirmAppointment', `.card-header { background-color: ${this.themeLightColor}; } .slots:hover { background-color: ${this.themeLightColor}; } .ep-slot-body::-webkit-scrollbar { background-color: ${this.themeColor}; } .ep-slot-body::-webkit-scrollbar-thumb { background-color: ${this.themeColor}; }`);
-  }
+  //   this.appendStyleToElement('#message', `::placeholder { color: ${this.themeColor}; }`);
+  //   this.appendStyleToElement('.epro-app-type', `background-color: ${this.themeColor};`);
+  //   this.appendStyleToElement('.btn-theme-light', `background-color: ${this.themeLightColor};`);
+  //   this.appendStyleToElement('#ConfirmPersonalDetails', `.form-control::placeholder { color: ${this.themeColor}; } .form-control { color: ${this.themeColor}; }`);
+  //   this.appendStyleToElement('#ConfirmAppointmentDetails', `.form-check-input:checked { background-color: ${this.themeColor}; }`);
+  //   this.appendStyleToElement('#ConfirmAppointment', `.card-header { background-color: ${this.themeLightColor}; } .slots:hover { background-color: ${this.themeLightColor}; } .ep-slot-body::-webkit-scrollbar { background-color: ${this.themeColor}; } .ep-slot-body::-webkit-scrollbar-thumb { background-color: ${this.themeColor}; }`);
+  // }
 
   private appendStyleToElement(selector: string, styles: string): void {
     const element = document.querySelector(selector);
@@ -121,11 +121,23 @@ export class ManifestService {
     // Implement GetLocationsApptTypes logic here
   }
 
-  private LightenDarkenColor(color: string, amount: number): string {
-    // Implement your LightenDarkenColor function logic
-    return color;
-  }
+  // private LightenDarkenColor(color: string, amount: number): string {
+  //   // Implement your LightenDarkenColor function logic
+  //   return color;
+  // }
+  LightenDarkenColor (col: string, amt: number) {
 
+    var usePound = false; if (col[0] == "#") {
+        col = col.slice(1);
+        usePound = true;
+    } var num = parseInt(col, 16); var r = (num >> 16) + amt; if (r > 255) r = 255;
+    else if (r < 0) r = 0; var b = ((num >> 8) & 0x00FF) + amt; if (b > 255) b = 255;
+    else if (b < 0) b = 0; var g = (num & 0x0000FF) + amt; if (g > 255) g = 255;
+    else if (g < 0) g = 0;
+    return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+}
+
+  
   private callAnalytics(analyticsId: string, analyticsScriptUrl: string): HTMLElement {
     // Implement your callAnalytics logic
     const scriptElement = document.createElement('script');

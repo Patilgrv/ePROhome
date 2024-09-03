@@ -11,10 +11,18 @@ declare var $: any;
 })
 export class CalenderModalComponent implements OnInit , AfterViewInit  {
   minDate!: string;
-  // @ViewChild('dateInput') dateInput!: ElementRef;
 
   constructor(public activeModal: NgbActiveModal){
+  }
 
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      const datePickerInput = document.getElementById('datepicker');
+      if (datePickerInput) {
+        datePickerInput.click();
+      }
+    }, 0);
   }
 
 
@@ -26,28 +34,20 @@ export class CalenderModalComponent implements OnInit , AfterViewInit  {
       changeMonth: true,
       ClassName: "active-day-theme",
       startDate: new Date()
+    }).on('changeDate', (e: any) => {
+      this.onDateChange(e.date);
     });
-  }
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      const datePickerInput = document.getElementById('datepicker');
-      if (datePickerInput) {
-        datePickerInput.click();
-      }
-    }, 0);
 
   }
-   
-  OnselectedDate(event:any) {
-    const selectedDate = event.target.value;
-    if (selectedDate) {
-      this.activeModal.close(selectedDate);
-    }
+
+  onDateChange(selectedDate: Date) {
+    console.log('Date selected:', selectedDate);
+    this.activeModal.close(selectedDate);
   }
-  
+
   closeModal() {
     this.activeModal.close(null);
   }
+
 }
 

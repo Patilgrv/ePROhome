@@ -12,8 +12,8 @@ import { AppointmentType, Locations } from '../../shared/interface/GetAllLocatio
 import { CommonService } from '../../shared/services/common/common.service';
 import { RestapiService } from '../../shared/services/restapi/restapi.service';
 import { CalenderModalComponent } from '../calender-modal/calender-modal.component';
-import { TimeSlotService } from '../../shared/services/get-time-slots/time-slots.service';
 import Swal from 'sweetalert2'
+import { TimeSlotService } from '../../shared/services/get-time-slotss/time-slots.service';
 
 @Component({
   selector: 'app-confirm-appointment-modal',

@@ -16,12 +16,12 @@ export class TimeSlotService {
   ) {}
 
   getTimeSlots(date: Date, appointmentTypeId: string, locationId: string, providerSrcId : string): Observable<boolean> {
-    const inquiryId = "54535";
+    const inquiryId = "54535";  //add check if not present null l
     const showMaxDays = true;
 
     const apiUrl = this.commonServices.apiParams(
-      `GetTimeSlots`,
-      `?date=${date}&appointmentTypeId=${appointmentTypeId}&inquiryId=${inquiryId}&clientDom=${this.globalValuesService.get('rsaC_API_CLIENT_KEY')}&locationSrcId=${locationId}&ShowMaxDays=${showMaxDays}&ProviderSrcID=${providerSrcId}`
+      `RSACSearchSLOTV2`,
+      `?date=${date}&AppointmentTypeSrcID=${appointmentTypeId}&InquiryID=${inquiryId}&LocationSRCID=${locationId}&ShowMaxDays=${showMaxDays}&ProviderSrcID=${providerSrcId}`
     );
     return this._restApiServices.getData(apiUrl).pipe(map((res: any) => res));
   }

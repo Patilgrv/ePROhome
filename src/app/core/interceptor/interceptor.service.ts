@@ -22,7 +22,9 @@ export class InterceptorService implements HttpInterceptor{
     ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.token = localStorage?.getItem('access_token');
+    // this.token = localStorage?.getItem('access_token');
+    this.token = "GfijJKu6kLveiUN4GXcJ+LMvZegSTcTCoOcwVR/8uGI0/phTu/LaNYbVUs4X1JvmxsFY6qIfafjgku/vwZosZBmB16w9feZEYpwTmmDEiHSGgiKuOVEROavLFvygWLUyOFZPsyr00kqEc6MW1vKoE/dMv0tHRfAiEqZnMZPdyfVatm7of4Kyq8mYLMkUQRu9Wd6nSHLFnZVtNMdYbJ0kGzlT650BkQBkz1mUlszDg5ukt1UDo1HJCRwfIs6AKIddWi47rez1z9xr2miMpiVhaKuGZlh48KCp91qNQfeWsUjRzFCVDaYeRJpfQ84taErkjhzSmoQJhGTvo/GTQ1jomxdCfHRDZ91lAYAYfsqJgfwEuc/6DJxgUUuyxmOZnEoUgBevhdb9siRjghBw8cXfMiWWbzdy4YJBxod61hBDWn2wfJyxhyRuNnYpqJ+e2xM7lRVUD35RspJZAS9vvYPj9mKeZJDA64jMOjsY9nKrWWtwyJyVADCnEhjYjJmSFNSEBjdlzIB4xNFayadPSqivRy442frIGL+bK3stbEQxN47NaTG/ow0/SurvayvnFCfwzz7SA8CmTnr6QxippIt8ocuFuu5d5nitrkKL492W+PBoK+1s3RZ+PJCDYPxnvO3ZcStLhn3mXE6RPZWm786NXKP3ID89Vk4ydcVqIv1JJ0E7QI5GJNykhsNnzytVZJDIGjjxFiJ6WtFkpY/KitZPZJI2XaVWSKx2BeQ5uFqT1aRREvwZqz80EWxATxZuOVoP";
+
     const userString = localStorage.getItem('user');
     const user = userString ? JSON.parse(userString) : null;
     this.RSAC_API_CLIENT_KEY = '410'
@@ -31,8 +33,9 @@ export class InterceptorService implements HttpInterceptor{
     this.spinner.show(); 
     const modifiedRequest = req.clone({
       headers: req.headers.set('authorization', `Bearer ${this.token}`)
-                          .set('RSAC_API_CLIENT_KEY', this.RSAC_API_CLIENT_KEY)
+                          .set('RSAC_API_CLIENT_DOM', 'carrotvisionsb')
                           .set('RSAC_API_CLIENT_PWD', this.RSAC_API_CLIENT_PWD)
+                          .set('RSAC_API_CLIENT_KEY', this.RSAC_API_CLIENT_KEY)
 
       // headers: req.headers.set(`RSAC_API_CLIENT_KEY ${this.RSAC_API_CLIENT_KEY}`, `RSAC_API_CLIENT_PWD ${this.RSAC_API_CLIENT_PWD}`),
 

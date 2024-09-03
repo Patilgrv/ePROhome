@@ -30,20 +30,20 @@ queryParamsForUtm : any
   ) {}
 
   getClient(carrotvisionsb: string): Observable<any> {
-    const api = this.commonServices.apiParams(`GetClient`, `?clientDom=${carrotvisionsb}`);
+    const api = this.commonServices.apiParams(`RSACClient`, ``);
 
     return this.restApiService.getData(api).pipe(
       map((response: any) => {
         if (response.results.status === 200) {
           const clientDomData = response;
-          const accessToken = clientDomData.rsaC_LOGIN_RESPONSE.accesstoken;
+          const accessToken = clientDomData.RSAC_LOGIN_RESPONSE.accesstoken;
           const clientKey =
-            clientDomData.rsaC_LOGIN_RESPONSE.rsaC_API_CLIENT_KEY;
+            clientDomData.RSAC_LOGIN_RESPONSE.rsaC_API_CLIENT_KEY;
 
           sessionStorage.setItem('clientDom', clientKey);
           this.globalValuesService.set('rsaC_API_CLIENT_KEY', clientKey);
 
-          const title = clientDomData.rsaC_LOGIN_RESPONSE.pageTitle.replace(
+          const title = clientDomData.RSAC_LOGIN_RESPONSE.pageTitle.replace(
             '-Appointments',
             ' | Scheduler'
           );

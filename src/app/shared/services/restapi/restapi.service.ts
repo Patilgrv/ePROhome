@@ -25,7 +25,7 @@ export class RestapiService {
     return this.http.delete(`${environment.apiUrl?.BaseURL}${apidata.api_name}${apidata.queryParams}`);
   }
 
-  getAuthData (apidata:any){
-    return this.http.get(`${environment.apiUrl?.AuthURL}${apidata.api_name}${apidata.queryParams}`);
-  }
+  // getAuthData (apidata:any){
+  //   return this.http.get(`${environment.apiUrl?.BaseURL}${apidata.api_name}${apidata.queryParams}`);
+  // }
 }

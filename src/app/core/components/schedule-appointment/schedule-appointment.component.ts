@@ -21,8 +21,8 @@ import { UTMService } from '../../../shared/services/utm/utm.service';
 import { ActivatedRoute } from '@angular/router';
 import { ErrorModalComponent } from '../../../modals/error-modal/error-modal.component';
 import { ClientService } from '../../../shared/services/get-client/client.service';
-import { TimeSlotService } from '../../../shared/services/get-time-slots/time-slots.service';
 import { AppConstant } from '../../../shared/constants/constants';
+import { TimeSlotService } from '../../../shared/services/get-time-slotss/time-slots.service';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -65,6 +65,7 @@ export class ScheduleAppointmentComponent {
         class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
       });
     }
+    
     else{
     this.checkUtmparameters();
     this.checkUrl();
@@ -75,7 +76,7 @@ export class ScheduleAppointmentComponent {
 
   getAuthorize(){
     let api = this.commonServices.apiParams(`RSACAuth`,'','');
-    this._restApiServices.getAuthData(api)
+    this._restApiServices.getData(api)
     .pipe(first()).subscribe({
       next: (res: any) => {
         console.log('response auth',res);
@@ -135,16 +136,13 @@ export class ScheduleAppointmentComponent {
 
   checkUtmparameters(){
     const isUtmAvailable = this.utmService.retrieveUTMParams();
-    if (isUtmAvailable) {
-      this.logUTMParameters();
-    }
+    // if (isUtmAvailable) {
+    //   this.logUTMParameters();
+    // }
   }
 
 
-  logUTMParameters() {
-  console.log("call the API which sends the UTM parameters");
-  }
-
+ 
 
 
   async openModal(component: any, data?: any, config?: any) {
