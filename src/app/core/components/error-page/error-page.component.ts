@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ErrorModalComponent } from '../../../modals/error-modal/error-modal.component';
 import { CommonService } from '../../../shared/services/common/common.service';
 
@@ -13,21 +13,25 @@ export class ErrorPageComponent {
 
   constructor(private commonServices: CommonService){}
 
-
     ngOnInit(){
-      this.openModal(ErrorModalComponent);
+      this.openModal(ErrorModalComponent, {}, {
+        class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
+      });
     }  
   
 
     async openModal(component: any, data?: any, config?: any) {
-      try {
-        const result = await this.commonServices.openModal(component, { someData: 'test' }, { Class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal' });
-        if (result) {
+
+
+      const results = await this.commonServices.openModal(component, data, { ...config });
+
+        // const result = await this.commonServices.openModal(component, { someData: data }, { class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal' });
+        if (results) {
             this.openModal(component);
         }
-      } catch (reason) {
+      } catch (reason : string) {
         console.log('Modal dismissed:', reason);
       }
-    }
+    
   
 }

@@ -117,7 +117,7 @@ export class ConfirmPersonalDetailsModalComponent {
   }
 
   BackConfirmAppointment(): void {
-    this.activeModal.close({ component: 'CheckAvailablityModalComponent' });
+    this.activeModal.close({ component: 'CheckAvailabilityModalComponent' });
   }
 
   

@@ -39,7 +39,7 @@ export class ManifestService {
         if (res?.results?.status === true) {
           this.manifestData = res;
           this.processManifestData(clientDom);
-          subscriber.next(true)
+          subscriber.next(this.manifestData)
         } else {
           this.logAndHandleError("An error occurred while retrieving the manifest details (RSACSchedulerManifest).");
           subscriber.next(true)
@@ -84,7 +84,6 @@ export class ManifestService {
   }
 
   private initializeAnalytics(analyticsId: string, analyticsScriptUrl: string, analyticsBodyUrl: string): void {
-    console.log("Initializing Google Analytics Instance");
     const analyticsElement = this.callAnalytics(analyticsId, analyticsScriptUrl);
     document.head.appendChild(analyticsElement);
 

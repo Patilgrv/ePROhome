@@ -6,6 +6,12 @@
     background-color: #bad9f8;
 }
 
+.modal-body{
+    position: relative;
+    flex: 1 1 auto;
+    padding: 2.5rem  ;
+}
+
 
 .datepicker.today { background-color: #f70843; }
 .datepicker.selected { background-color: #300fe9; }

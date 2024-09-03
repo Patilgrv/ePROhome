@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { first } from 'rxjs';
+import { first, switchMap } from 'rxjs';
 import { ConfirmAppointmentModalComponent } from '../../../modals/confirm-appointment-modal/confirm-appointment-modal.component';
 import { ConfirmPersonalDetailsModalComponent } from '../../../modals/confirm-personal-details-modal/confirm-personal-details-modal.component';
 import { RequestAppointmentDetailsModalComponent } from '../../../modals/request-appointment-details-modal/request-appointment-details-modal.component';
@@ -12,16 +12,17 @@ import { AuthorizeDotNetCardPaymentModalComponent } from '../../../modals/author
 import { HeartlandCardPaymentModalComponent } from '../../../modals/heartland-card-payment-modal/heartland-card-payment-modal.component';
 import { RequestSummaryErrorModalComponent } from '../../../modals/request-summary-error-modal/request-summary-error-modal.component';
 import { SummaryRequestModalComponent } from '../../../modals/summary-request-modal/summary-request-modal.component';
-import { CheckAvailablityModalComponent } from '../../../modals/check-availablity-modal/check-availablity-modal.component';
+import { CheckAvailabilityModalComponent } from '../../../modals/check-availablity-modal/check-availablity-modal.component';
 import { GlobalValuesService } from '../../../shared/services/global/global.service';
 import { CommonService } from '../../../shared/services/common/common.service';
 import { RestapiService } from '../../../shared/services/restapi/restapi.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { ManifestService } from '../../../shared/services/manifest/manifest-service.service';
 import { CookieService } from '../../../shared/services/check-cookies/cookie.service';
 import { UTMService } from '../../../shared/services/utm/utm.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ErrorModalComponent } from '../../../modals/error-modal/error-modal.component';
+import { ClientService } from '../../../shared/services/get-client/client.service';
+import { TimeSlotService } from '../../../shared/services/get-time-slots/time-slots.service';
+import { AppConstant } from '../../../shared/constants/constants';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -40,19 +41,19 @@ export class ScheduleAppointmentComponent {
   hasUTMParams: boolean = false; 
   inquiryId: string = '';
   isCarrotVisionsbFound: boolean = false;
+  useRequestForm: boolean = false;
 
 
 
   constructor(
     private _restApiServices: RestapiService,
      private commonServices: CommonService , 
-     private globalValuesService: GlobalValuesService, 
-     private sanitizer: DomSanitizer,
-     private manifestService : ManifestService,
      private cookieService : CookieService,
      private utmService: UTMService,
      private route: ActivatedRoute,
-     private router: Router,
+     private clientService: ClientService,
+     private timeSlotService : TimeSlotService
+
   )
   {}
 
@@ -60,32 +61,17 @@ export class ScheduleAppointmentComponent {
     
     const cookiesEnabled = this.cookieService.checkCookie();
     if (!cookiesEnabled) {
-      console.log('Cookies are disabled or blocked.');
-    };
-
-    this.utmService.retrieveUTMParams();
-     this.checkURl();
-
-    // this.getClient();
+      this.openModal(ErrorModalComponent, {isCookiesEnabled : cookiesEnabled}, {
+        class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
+      });
+    }
+    else{
+    this.checkUtmparameters();
+    this.checkUrl();
+    }
     // this.getAuthorize();
-
   }  
 
-
-  getValueAndMatch(url: string): string | null {
-    if (!url || typeof url !== 'string') {
-      return null;
-    }
-    
-    try {
-      const parsedUrl = new URL(url);
-      const hostname = parsedUrl.hostname;
-      return hostname ? (hostname.includes('carrotvisionsb') ? hostname : null) : null;
-    } catch (error) {
-      console.error('Invalid URL:', error);
-      return null;
-    }
-  }
 
   getAuthorize(){
     let api = this.commonServices.apiParams(`RSACAuth`,'','');
@@ -100,83 +86,70 @@ export class ScheduleAppointmentComponent {
   }
 
 
-  getClient(): void {
-    let api = this.commonServices.apiParams(`GetClient`, `?clientDom=carrotvisionsb`);
-    
-    this._restApiServices.getData(api)
-      .pipe(first())
+
+  checkUrl() : void{
+    const default_app_type = '12416'
+    const default_locatiopn_type = '0'
+    const date : any = new Date().toISOString().split('T')[0];
+    const checkCarrotvision = this.route?.snapshot?.routeConfig?.path === 'carrotvisionsb';
+    const apptTypeValue = this.route.snapshot.queryParams['appttype'] ; 
+    const locTypeValue = this.route.snapshot.queryParams['loc'];
+    const finalApptTypeValue = apptTypeValue || default_app_type;
+    const finalLocTypeValue = locTypeValue || default_locatiopn_type; 
+    const providerSrcId = '0'
+
+      if (checkCarrotvision){
+      this.clientService.getClient('carrotvisionsb')
+      .pipe(
+        switchMap(() => this.timeSlotService.getTimeSlots(date, finalApptTypeValue, finalLocTypeValue, providerSrcId))
+      )
       .subscribe({
-        next: (res: any) => {
-          if (res?.results?.status === 200) {
-            this.clientDomData = res;
-            this.accessToken = this.clientDomData.rsaC_LOGIN_RESPONSE.accesstoken;
-            this.clientKey = this.clientDomData.rsaC_LOGIN_RESPONSE.rsaC_API_CLIENT_KEY;
-  
-            sessionStorage.setItem("clientDom", this.clientKey);
-            this.globalValuesService.set('rsaC_API_CLIENT_KEY', this.clientKey);
-  
-            let title = this.clientDomData.rsaC_LOGIN_RESPONSE.pageTitle.replace("-Appointments", " | Scheduler");
-            document.title = title;
-            sessionStorage.setItem("Title", title);
-  
-            if (!document.title) {
-              if (this.utmService.isUtmAvailable) {
-                this.logUTMParameters();}
-            } else {
-              this.manifestService.getManifest(this.accessToken, this.clientKey)
-                .subscribe({
-                  next: (manifestData) => {
-                    this.openModal(CheckAvailablityModalComponent, {}, {
-                      Class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
-                    });
-                  }
-                });
-            }
+        next: (result: any) => {
+            this.useRequestForm = result?.inquiryDetail?.validate?.useRequestForm;
+            
+        if (this.useRequestForm) {
+            this.openModal(RequestAppointmentDetailsModalComponent, {}, {  
+              class: AppConstant.class
+            });
+          } else if ((apptTypeValue || locTypeValue)) { 
+            this.openModal(ConfirmAppointmentModalComponent , {}, {
+              class: AppConstant.class
+            });        
+          } else {
+            this.openModal(CheckAvailabilityModalComponent, {}, {  
+              class: AppConstant.class
+            });        
           }
-        }
+        },
       });
-  }
-  
-  logUTMParameters(){
-    console.log('does nothing');
-  }
-
-  checkURl() {
-    const url = this.router.url;
-    const queryParams = this.route.snapshot.queryParams;
-
-    if ('appttype' in queryParams) {
-      const apptTypeValue = queryParams['appttype'];
-      console.log('appttype:', apptTypeValue);
-      this.openModal(ConfirmAppointmentModalComponent, {}, {
-        Class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
-      });
-
-      // You can store apptTypeValue in a class property if needed
-    }
-  
-    const pathSegments = url.split('/')
-
-    // const pathSegments = url.split('?')[0].split('/');
-    this.isCarrotVisionsbFound =  pathSegments.includes('carrotvisionsb')
-    const updated = url.split('?')
-    console.log(updated);
-    if (this.isCarrotVisionsbFound){
-      this.getClient();
     }
     else{
       this.openModal(ErrorModalComponent, {}, {
-        Class: 'modal-dialog modal-dialog-centered modal-xl model-schedule modal-cutsom-login modal-cutsom-modal epro-datetime-modal'
+        class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal'
+        
       });
     }
   }
         
   
 
+  checkUtmparameters(){
+    const isUtmAvailable = this.utmService.retrieveUTMParams();
+    if (isUtmAvailable) {
+      this.logUTMParameters();
+    }
+  }
+
+
+  logUTMParameters() {
+  console.log("call the API which sends the UTM parameters");
+  }
+
+
+
   async openModal(component: any, data?: any, config?: any) {
     try {
       const results = await this.commonServices.openModal(component, data, { ...config });
-      console.log('Modal result:', results);
       switch (results.component) {
         case 'ConfirmAppointmentModalComponent':
           this.openModal(ConfirmAppointmentModalComponent, results.value, results.config );

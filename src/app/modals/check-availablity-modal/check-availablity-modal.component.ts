@@ -16,7 +16,7 @@ import { TimeSlotService } from '../../shared/services/get-time-slots/time-slots
   templateUrl: './check-availablity-modal.component.html',
   styleUrl: './check-availablity-modal.component.scss'
 })
-export class CheckAvailablityModalComponent  implements OnInit {
+  export class CheckAvailabilityModalComponent  implements OnInit {
   
   @Input() data: any;
   appointmentTypes: AppointmentType [] = [];
@@ -30,6 +30,7 @@ export class CheckAvailablityModalComponent  implements OnInit {
 
   selectedLocationID :any;
   selectedAppointmentID: any;
+  selectedproviderID: any;
   selectedDate: any = new Date().toISOString().split('T')[0];
   appointmentSlotsList: any;
   useRequestForm: any;
@@ -41,15 +42,16 @@ export class CheckAvailablityModalComponent  implements OnInit {
      private commonServices: CommonService,
      public modalService:NgbModal,
      private globalValuesService : GlobalValuesService,
-     private locationService : LocationService,
-     private timeSlotService : TimeSlotService
+     private timeSlotService : TimeSlotService,
   ) { }
 
-
+ 
 
   ngOnInit() : void {
     this.getAllLocations();
-    this.minDate = new Date().toISOString().split('T')[0];
+    this.minDate = this.selectedDate;  // disable previous dates
+    this.globalValuesService.set('selectedDate', this.selectedDate);
+    this.globalValuesService.set('rsaC_PERSON_SRC_ID', '0');
   }
 
   
@@ -63,9 +65,11 @@ export class CheckAvailablityModalComponent  implements OnInit {
           this.locations = res?.locations;
           this.appointmentTypes = res?.appointmentTypes;
           this.providers = res.providers
-        }, error: error => {
-          console.log('getAllLocations', error);
-        }, 
+
+          this.globalValuesService.set('locations', (this.locations));
+          this.globalValuesService.set('appointmentTypes', (this.appointmentTypes));
+          this.globalValuesService.set('providers', (this.providers));
+        }
       });
   }
 
@@ -85,62 +89,63 @@ export class CheckAvailablityModalComponent  implements OnInit {
 
   onLocationChange(event:any){
     this.selectedLocationID = event?.target.value
-    // this.locationService.setSelectedLocation(this.selectedLocationID);
     this.globalValuesService.set('selectedLocationID', this.selectedLocationID);
-    event.preventDefault();
   }
 
 
   OnAppointmentTypeChange(event: any){
-    console.log(event?.target.value)
     this.selectedAppointmentID = event?.target.value
-    // this.locationService.setSelectedAppointment(this.selectedAppointmentID);
     this.globalValuesService.set('selectedAppointmentID', this.selectedAppointmentID);
-
-
   }
   
   OnDateChange(event: any){
-      this.selectedDate = event.target.value;
+    this.selectedDate = event.target.value;
+    this.globalValuesService.set('selectedDate', this.selectedDate);
+
   }
 
   OnProviderChange(event : any){
-    this.providers = event?.target.value
-    console.log('selectedDate',this.selectedDate)
+    this.selectedproviderID = event?.target.value
+    this.globalValuesService.set('rsaC_PERSON_SRC_ID', this.selectedproviderID);
   }
 
-getTimeSlots() {
+  getTimeSlots() {
   const date = this.selectedDate;
   const appointmentTypeId = this.selectedAppointmentID;
   const locationId = this.selectedLocationID;
+  const providerSrcId = this.selectedproviderID 
 
-  this.timeSlotService.getTimeSlots(date, appointmentTypeId, locationId).subscribe((result : any) => {
-  this.useRequestForm = result?.inquiryDetail.validate.useRequestForm;
+  this.timeSlotService.getTimeSlots(date, appointmentTypeId, locationId, providerSrcId).subscribe((result : any) => {  //used for navigation value only
+  this.useRequestForm = result?.inquiryDetail?.validate?.useRequestForm;
 
     if (this.useRequestForm) {
       this.activeModal.close({
         component: 'RequestAppointmentDetailsModalComponent',
         value: { value:  {
-          selectedlocationid: this.selectedLocationID,
-          selectedAppointmentID : this.selectedAppointmentID,
+          locations:  this.locations,
+          appointmentTypes : this.appointmentTypes,
+          providers : this.providers,
           appointmentDate : this.selectedDate,
         }
       },
         config: { 
-          Class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal' 
+          class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal' 
         }
       }); 
     } else {
       this.activeModal.close({
         component: 'ConfirmAppointmentModalComponent',
         value: { value:  {
-          selectedlocationid: this.selectedLocationID,
-          selectedAppointmentID : this.selectedAppointmentID,
+          locations:  this.locations,
+          appointmentTypes : this.appointmentTypes,
+          providers : this.providers,
+          // selectedlocationid: this.selectedLocationID,
+          // selectedAppointmentID : this.selectedAppointmentID,
           appointmentDate : this.selectedDate,
         }
       },
         config: { 
-          Class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal' 
+          class: 'modal-dialog modal-dialog-centered modal-xl modal-cutsom-modal epro-datetime-modal'
         }
       }); 
     }

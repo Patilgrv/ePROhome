@@ -15,13 +15,9 @@
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
 </div>
 <div class="modal-body" id="datepicker" >
-    <form class="row">
-        <div class="col-5">
-          <div class="input-group date" id="datepicker">
-            <input  type="text"  class="form-control" id="date" />
+          <div class="input-group dates" id="datepicker">
+            <input class="form-control font-theme" (click)="OnselectedDate($event)" id="date" />
           </div>
-        </div>
-      </form>
 </div>
 
 

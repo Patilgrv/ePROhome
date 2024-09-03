@@ -1,4 +1,3 @@
-<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
     <div class="modal-header">
       <div class="row w-100 flex-row-reverse align-items-center mx-0">
         <div class="col-xl-4 pr-0 text-right epro-logo-section">
@@ -10,12 +9,13 @@
       </div>
     </div>
   
-    <div class="modal-body scrollable-modal-body">
+    <div class="modal-body epro-datetime-box px-0">
+    <form [formGroup]="appointmentForm">
       <div class="row">
         <div class="col-md-4" id="LocationField">
           <div class="form-select-field">
             <label class="ffily form-label" id="appot-v4262">Location</label>
-            <select formControlName="location" class="form-select font-theme" id="locationOptions" (change)="getAllLocations()" required>
+            <select formControlName="location" class="form-select font-theme" id="locationOptions" (change)="updatedSlots()" required>
               <option *ngFor="let locationData of locations" [value]="locationData.rsaC_LOCATION_SRC_ID">
                 {{ locationData.rsaC_LOCATION_NME }}
               </option>
@@ -26,7 +26,7 @@
         <div class="col-md-4" id="AppointmentTypesField">
           <div class="form-select-field">
             <label class="form-label" id="appot-v4262">Appointments</label>
-            <select formControlName="appointmentType" class="form-select font-theme" id="appointmentTypesOptions" (change)="getAllLocations()" required>
+            <select formControlName="appointmentType" class="form-select font-theme" id="appointmentTypesOptions" (change)="updatedSlots()" required>
               <option *ngFor="let appointmenttype of appointmentTypes" [value]="appointmenttype.appointmentTypeSrcID">
                 {{ appointmenttype.appointmentTypeDesc }}
               </option>
@@ -38,10 +38,10 @@
           <div class="col-md-4" id="UpdateProviderField">
             <div class="form-select-field">
               <label class="form-label">Provider</label>
-              <select formControlName="provider" class="form-select font-theme" id="providersOptions" required>
-                <option value="0" selected>All</option>
-
-                <option *ngFor="let provider of providers" [value]="provider.rsaC_PERSON_SRC_ID" >
+               <select formControlName="provider" class="form-select font-theme" id="providersOptions" (change)="updatedSlots()" required
+              >
+                <option *ngFor="let provider of providers"
+                            [value]="provider.rsaC_PERSON_SRC_ID" >
                   {{ provider.personName }}
                 </option>
               </select>
@@ -54,7 +54,9 @@
   
       <div class="d-flex justify-content-between ep-head-datepicker">
         <div class="ep-left-btn ep-cl-btns">
-          <button class="butNext screen-third btn btn-orange btn-theme-light" id="left_Calendar_button">
+          <button class="butNext screen-third btn btn-orange btn-theme-light"
+           id="left_Calendar_button"
+           (click)="getPreviousWeekDate()">
             <i class="fas fa-arrow-left" style="color:black;"></i>
           </button>
         </div>
@@ -65,7 +67,9 @@
           </button>
         </div>
         <div class="ep-right-btn ep-cl-btns">
-          <button class="butNext screen-third btn btn-orange btn-theme-light" id="right_Calendar_button"
+          <button class="butNext screen-third btn btn-orange btn-theme-light"
+           id="right_Calendar_button"
+           (click)="nextWeekdates()"
             style="float:right">
             <i class="fas fa-arrow-right" style="color:black;"></i>
           </button>
@@ -90,7 +94,11 @@
               </div>
               <div class="card-body text-center" id="ToolTipOnSlot">
                 <span *ngIf="slots.count === 0" class="noSlots">No Available Appointments</span>
-            <button class="slots" *ngFor="let intraday of slots.intraday" href="" (click)="selectSlot($event,intraday.rsaC_APPT_SLOT_SRC_ID)">
+            <button 
+            class="slots epro-slots-filld"
+            *ngFor="let intraday of slots.intraday"
+            href = ""
+            (click)="OnselectedSlot($event,intraday.rsaC_APPT_SLOT_SRC_ID)">
                   {{ intraday.rsaC_APPT_SLOT_START_TIME }}
             </button>
               </div>
@@ -105,9 +113,9 @@
         Please select a valid slot.
       </div>
   
-      <button type="submit" (click) = ConfirmAppointment2() class="butNext screen-second btn-orange btn-theme">
+      <button type="submit" (click)= "ConfirmAppointment($event)" class="butNext screen-second btn-orange btn-theme">
         NEXT
       </button>
+    </form>
     </div>
-  </form>
   

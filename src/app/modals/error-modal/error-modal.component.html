@@ -48,7 +48,7 @@
     </div>
   
 </div>
-<div class="modal-body scrollable-modal-body">
+<div class="modal-body epro-otp-modal-body">
     <img src="https://cdn.dribbble.com/users/1150186/screenshots/6290394/session_timeout_warning.jpg?compress=1&resize=400x300"
                      class="epro-error-image" />
                 <h2 class="epro-otp-heading mb-4">Sorry!</h2>
@@ -56,9 +56,12 @@
                     We have some technical issue here. Please refresh
                     the page or please call the service.
                 </h4>
-                <h4 class="epro-appoint-details epro-error-text" id="cookieNotPresent">
-                    Please enable cookies in your browser and refresh the page to book your appointment. For further assistance, please contact our practice.
-                </h4>
+                <div *ngIf="isCookiesDisabled">
+                    <h4 class="epro-appoint-details epro-error-text" id="cookieNotPresent">
+                        Please enable cookies in your browser and refresh the page to book your appointment. For further assistance, please contact our practice.
+                    </h4>
+                </div>
+                
                 <div class="row">
                 </div>
 </div>

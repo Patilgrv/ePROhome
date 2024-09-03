@@ -6,17 +6,23 @@
   .btn-theme , .epro-app-type,
   #ConfirmAppointmentDetails.form-check-input:checked,
   .ep-slot-body::-webkit-scrollbar,
-  .ep-slot-body::-webkit-scrollbar-thumb
+  .ep-slot-body::-webkit-scrollbar-thumb,
+  .swal2-styled.swal2-confirm
   {
     background-color: var(--theme-color) !important;
   }
-  
+
+  .ep-head-datepicker .ep-left-btn button,
+  .ep-head-datepicker .ep-right-btn button,
+  .ep-slot-body .ep-custom-card .card .calendar-button, 
   #ConfirmAppointmentDetails.form-check-input:checked,
   #ConfirmAppointment.card-header,
-  #ConfirmAppointment.slots:hover
+  #ConfirmAppointment.slots:hover,
+  .slots:hover
   {
-    background-color: var(--theme-light-color) !important;
-  }
+    // background-color: var(--theme-light-color) !important;
+    background-color: rgb(186, 217, 248) !important;
+}
 
   .font-theme , 
   .btn-theme-light, 
@@ -24,7 +30,7 @@
   #ConfirmPersonalDetails.form-control ::placeholder, #ConfirmPersonalDetails.form-control
   
   {
-    color: var(--theme-light-color);
+    color: var(--theme-light-color)!important;
   }
 
 
@@ -737,6 +743,12 @@ epro-otp-heading {
         }
 }
 
+@media (min-width: 992px) {
+    .text-lg-left {
+        text-align: left !important;
+    }
+}
+
 
 .epro-otp-image {
     width: 25%;
@@ -792,12 +804,38 @@ epro-otp-heading {
     text-align: right
 }
 
+.text-center {
+    text-align: center !important;
+}
+
 .pr-0{
     padding-right: 0px;
 }
 
 .pl-0{
     padding-left: 0;
+}
+
+.px-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.mx-0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.hide-element{
+    display: none;
 }
 
 .noSlots {
@@ -1587,3 +1625,5 @@ span.ep-not-available {
         margin-top: 32px
     }
 }
+
+

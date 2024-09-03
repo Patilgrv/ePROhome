@@ -10,10 +10,9 @@ export const routes: Routes = [
     children: [
       { path: 'carrotvisionsb', component: ScheduleAppointmentComponent },
       { path: 'summary', component: SummaryComponent },
-      { path: '',  redirectTo: 'carrotvisionsb', pathMatch: 'full' }, 
+      // { path: '',  redirectTo: 'carrotvisionsb', pathMatch: 'full' }, 
     ]
   },
   { path: '',   redirectTo: 'practice', pathMatch: 'full' }, 
-
   { path: '**', component: ErrorPageComponent },
 ];

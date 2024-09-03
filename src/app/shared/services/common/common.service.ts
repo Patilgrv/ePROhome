@@ -33,7 +33,7 @@ export class CommonService {
     const modalConfig = {
        ...defaultConfig,
        ...config,
-       modalDialogClass: `${defaultConfig.modalDialogClass} ${config?.Class || ''}`.trim()
+       modalDialogClass: `${defaultConfig.modalDialogClass} ${config?.class || ''}`.trim()
       };
 
     const modalRef = this.modalService.open(component, modalConfig);

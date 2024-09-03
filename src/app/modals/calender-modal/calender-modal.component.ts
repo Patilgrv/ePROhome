@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 declare var $: any;
 
@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class CalenderModalComponent implements OnInit , AfterViewInit  {
   minDate!: string;
-  @ViewChild('dateInput') dateInput!: ElementRef;
+  // @ViewChild('dateInput') dateInput!: ElementRef;
 
   constructor(public activeModal: NgbActiveModal){
 
@@ -32,8 +32,6 @@ export class CalenderModalComponent implements OnInit , AfterViewInit  {
   ngOnInit(): void {
     setTimeout(() => {
       const datePickerInput = document.getElementById('datepicker');
-
-      
       if (datePickerInput) {
         datePickerInput.click();
       }
@@ -41,17 +39,15 @@ export class CalenderModalComponent implements OnInit , AfterViewInit  {
 
   }
    
-  setSelectedDate() {
-    // Set selected date logic here
+  OnselectedDate(event:any) {
+    const selectedDate = event.target.value;
+    if (selectedDate) {
+      this.activeModal.close(selectedDate);
+    }
   }
+  
   closeModal() {
-  //   const modal = document.getElementById('calendarModal');
-  //   if (modal) {
-  //     modal.click();
-  //   }
-  // }
-
-    this.activeModal.close('CalenderModalComponent');
+    this.activeModal.close(null);
   }
 }
 

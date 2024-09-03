@@ -15,10 +15,9 @@ export class TimeSlotService {
     private _restApiServices: RestapiService
   ) {}
 
-  getTimeSlots(date: Date, appointmentTypeId: string, locationId: string): Observable<boolean> {
+  getTimeSlots(date: Date, appointmentTypeId: string, locationId: string, providerSrcId : string): Observable<boolean> {
     const inquiryId = "54535";
     const showMaxDays = true;
-    const providerSrcId = "0";
 
     const apiUrl = this.commonServices.apiParams(
       `GetTimeSlots`,

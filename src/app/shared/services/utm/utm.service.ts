@@ -10,11 +10,11 @@ export class UTMService {
   isUtmAvailable : boolean = false;
   
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
    ) {}
 
   
-  retrieveUTMParams(): void {
+  retrieveUTMParams(): any {
     this.route.queryParamMap.subscribe(params => {
       this.utmParams = {
         utm_source: params.get('utm_source'),
